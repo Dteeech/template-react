@@ -1,9 +1,17 @@
-// Importation des composants NavLink de react-router-dom
 import { NavLink } from "react-router-dom";
-
-// Création d'un composant de navigation
+import {useEffect} from 'react'
+import axios from 'axios'
 const Nav = (props) => {
-  // Retourne un élément de navigation contenant une liste d'éléments de navigation
+  
+  useEffect(() => {
+    if(!axios.defaults.headers.common['Authorization']){
+      const token = localStorage.getItem("jwtToken")
+      if(token){
+        axios.defaults.headers.common['Authorization'] = 'Bearer '+token
+      }
+    }
+  },[])
+  
   return (
     <nav>
       <ul>
@@ -18,23 +26,23 @@ const Nav = (props) => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/profil">
-            profil
+          <NavLink to="/uploadFile">
+            Upload d'images
           </NavLink>
         </li>
         <li>
           <NavLink to="/product/react">
-            React
+            profil
           </NavLink>
         </li>
         <li>
           <NavLink to="/product/html">
-            HTML
+            profil
           </NavLink>
         </li>
         <li>
           <NavLink to="/testme">
-            Test
+            profil
           </NavLink>
         </li>
       </ul>
@@ -42,5 +50,4 @@ const Nav = (props) => {
   );
 };
 
-// Exportation du composant de navigation
 export default Nav;
