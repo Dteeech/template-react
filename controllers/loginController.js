@@ -45,6 +45,7 @@ export default async (req, res) => {
   // Extraction du mot de passe et de l'email du corps de la requête
   const { password, email } = req.body
   console.log(email)
+  
 
   // Requête SQL pour récupérer les données de l'utilisateur
   const sql = "SELECT * FROM users WHERE email = ?"
@@ -55,6 +56,9 @@ export default async (req, res) => {
   try {
     // Exécution de la requête SQL
     const result = await asyncQuery(sql, paramsSql)
+    if(result.length === 0 ){
+     return res.json({response : "information erronée"})
+    }
     console.log(result)
     // Génération d'une réponse pour l'utilisateur
     const response = await generateResponse(result[0])
@@ -63,7 +67,7 @@ export default async (req, res) => {
     const resultCompare = await bcrypt.compare(password, result[0].password)
 
     // Retourne la réponse si le mot de passe est correct, sinon une réponse nulle
-    res.json(resultCompare ? { response } : { response: null })
+    res.status(401).json(resultCompare ? { response } : { response: "information erronée" })
   } catch (err) {
     console.log(err)
     res.sendStatus(500)
