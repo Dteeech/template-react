@@ -17,32 +17,22 @@ const Nav = (props) => {
       <ul>
         <li>
           <NavLink to="/">
-            HOME
+            Accueil
           </NavLink>
         </li>
         <li>
-          <NavLink to="/contact">
-            contact
+          <NavLink to="/consoles">
+            Consoles
           </NavLink>
         </li>
         <li>
-          <NavLink to="/uploadFile">
-            Upload d'images
+          <NavLink to="/jeux">
+            Jeux
           </NavLink>
         </li>
         <li>
-          <NavLink to="/product/react">
-            profil
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/product/html">
-            profil
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/testme">
-            profil
+          <NavLink to="/login">
+            icone loggin
           </NavLink>
         </li>
       </ul>

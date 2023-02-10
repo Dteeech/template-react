@@ -1,7 +1,7 @@
 import parseurl from 'parseurl';
 import {verifyToken} from "../config/token.js"
 
-const ADMIN_ROLE_ID = 5
+const ADMIN_ROLE_ID = 1
 
 const paths = {
   ADMIN: ['TESTME'],

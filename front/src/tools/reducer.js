@@ -1,5 +1,22 @@
 const reducer = (state, action) => {
     switch(action.type){
+        case 'LOGIN':
+            
+            return{
+                ...state,
+                user: {isLogged: true, username: action.action.username, token: action.action.token}
+            }
+        case 'LOGOUT':
+            return {
+                ...state,
+                user: {
+                    isLogged: false, username:'', token:''
+                }
+            }
+            
+        
+        default:
+        return state;
         // case 'INPUT_CHANGE':
         //     return{
         //         ...state,
@@ -30,8 +47,6 @@ const reducer = (state, action) => {
         //         ...state,
         //         tasks:action.payload
         //     }
-        default :
-        return state
     }
 }
 

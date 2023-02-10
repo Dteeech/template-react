@@ -7,7 +7,7 @@ export let pool  = mysql.createPool({
     host: "db.3wa.io", // Adresse de l'hôte où se trouve la base de données
     user: "isaacmarshall", // Identifiant pour se connecter à la base de données
     password: "05a91eae8f06121c7e051e8cfe6fd6bb", // Mot de passe pour se connecter à la base de données
-    database: "isaacmarshall_tutotest", // Nom de la base de données à laquelle se connecter
+    database: "isaacmarshall_projet", // Nom de la base de données à laquelle se connecter
 });
 
 // permet d'obtenir le resultat des requete sql async

@@ -6,30 +6,44 @@ import axios from 'axios'
 const UploadFile = () => {
     // const [state, dispatch] = useContext(AppContext)
     
+    // Submit du formulaire
     const submit = (e) => {
         e.preventDefault()
+        
+        // Nom d'utilisateur
         const username = "Pseudo"
+        
+        // Initialisation d'un objet FormData pour envoyer les données du formulaire
         const dataFile = new FormData();
+        
+        // Récupération des fichiers envoyés dans le formulaire
         const files = {...e.target.avatar.files};
         
+        // Affichage des fichiers dans la console
         console.log(files)
         
-        // ajouter d'autre input au formulaire
+        // Ajout du nom d'utilisateur à l'objet FormData
         dataFile.append('username', username)
         
-        // L'image
+        // Ajout de la première image de la liste de fichiers à l'objet FormData
         dataFile.append('files', files[0], files[0].name)
         
+        // Envoi de la requête à l'URL de téléchargement de fichier avec les données du formulaire
         axios.post(`${BASE_URL}/uploadFile`, dataFile)
-        .then((res)=> {
-            console.log(res)
-            res.data.response && console.log('succesfully upload');
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+            .then((res)=> {
+                // Affichage de la réponse dans la console
+                console.log(res)
+                
+                // Vérification de la réponse pour savoir si le téléchargement a été effectué avec succès
+                res.data.response && console.log('succesfully upload');
+            })
+            .catch((err) => {
+                // Affichage de l'erreur dans la console en cas d'échec de la requête
+                console.log(err)
+            })
     } 
     
+    // Retourne un formulaire pour télécharger un fichier
     return (
         <Fragment>
             <h1>Ajouter/Modifier l'avatar</h1>
