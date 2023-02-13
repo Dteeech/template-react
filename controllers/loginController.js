@@ -58,6 +58,7 @@ export default async (req, res) => {
     const result = await asyncQuery(sql, paramsSql)
     if(result.length === 0 ){
      return res.json({response : "information erronée"})
+     
     }
     console.log(result)
     // Génération d'une réponse pour l'utilisateur
@@ -66,8 +67,8 @@ export default async (req, res) => {
     // Comparaison du mot de passe entré avec le mot de passe haché dans la base de données
     const resultCompare = await bcrypt.compare(password, result[0].password)
 
-    // Retourne la réponse si le mot de passe est correct, sinon une réponse nulle
-    res.status(401).json(resultCompare ? { response } : { response: "information erronée" })
+    // Retourne la réponse si le mot de passe est correct, sinon une erreur
+    res.json(resultCompare ? { response } : { response: "information erronée" })
   } catch (err) {
     console.log(err)
     res.sendStatus(500)

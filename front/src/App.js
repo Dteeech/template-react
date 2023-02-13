@@ -16,6 +16,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/upload" element={<UploadFile />} />
             <Route path="*" element={<Error404 />} />
+            
         </Routes>
     </BrowserRouter>
   );

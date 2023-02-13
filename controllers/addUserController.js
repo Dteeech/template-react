@@ -42,7 +42,7 @@ export default async(req, res) => {
         const createUser = await asyncQuery(sql, paramsSql)
 
         // on retourn la reponse
-        return { response: createUser }
+        return res.json({ response: createUser })
     }
     catch (err) {
         console.log(err)

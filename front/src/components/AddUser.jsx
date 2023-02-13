@@ -38,14 +38,7 @@ const AddUser = () => {
             password: userData.password
         }
 
-        axios.post(`${BASE_URL}/addUser`, {
-                last_name: userData.last_name,
-                first_name: userData.first_name,
-                email: userData.email,
-                password: userData.password
-
-            })
-    }
+        axios.post(`${BASE_URL}/addUser`, trimmedFormData())    }
 
 
     return (
