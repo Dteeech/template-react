@@ -1,11 +1,13 @@
 import axios from "axios"
 import { BASE_URL } from '../tools/constante.js'
-import { useState } from "react"
+import { useState, Fragment } from "react"
+import {Navigate} from 'react-router-dom'
 // fonction de vérification de nombre de caractères
 import { lengthLimit, checkVide } from "../tools/maxLength.js"
 
 const AddUser = () => {
     
+    const [isRegistered, setIsRegistered] = useState(false)
     const [userData, setUserData] = useState({
         last_name: '',
         first_name: '',
@@ -38,20 +40,39 @@ const AddUser = () => {
             password: userData.password
         }
 
-        axios.post(`${BASE_URL}/addUser`, trimmedFormData())    }
-
+        axios.post(`${BASE_URL}/addUser`, trimmedFormData)
+        
+        .then(res => {
+            console.log(res)
+            if(res.data.response.affectedRows > 0)
+            setIsRegistered(true)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+    console.log(setIsRegistered)
 
     return (
-
-        <form onSubmit={submit}>
         
-            <input type='text' placeholder='nom' name='last_name' onChange={handleChange} value={userData.last_name} />
-            <input type='text' placeholder='prenom' name='first_name' onChange={handleChange} value={userData.first_name} />
-            <input type='email' placeholder='email' name='email' onChange={handleChange} value={userData.email} />
-            <input type='password' placeholder='password' name='password' onChange={handleChange} value={userData.password} />
-            <input type='submit' />
-            {}
-        </form>
+        <Fragment>
+            { isRegistered === false ?
+                 (<form onSubmit={submit}>
+                    
+                    <input type='text' placeholder='nom' name='last_name' onChange={handleChange} value={userData.last_name} />
+                    <input type='text' placeholder='prenom' name='first_name' onChange={handleChange} value={userData.first_name} />
+                    <input type='email' placeholder='email' name='email' onChange={handleChange} value={userData.email} />
+                    <input type='password' placeholder='password' name='password' onChange={handleChange} value={userData.password} />
+                    <input type='submit' />
+                    
+                </form>)
+                
+                : 
+                
+                <Navigate to = "/login"/>
+                
+            }
+        </Fragment>    
     )
 }
 

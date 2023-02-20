@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom"
 import { lengthLimit, checkVide } from "../tools/maxLength.js"
 import { StoreContext } from "../tools/context.js"
 import { useContext } from "react"
-import UserIsLogged from "./UserIsLogged.jsx"
+import { Navigate } from "react-router-dom"
 
 const Login = () => {
     // Déclaration d'un objet "initialState" pour stocker les valeurs par défaut des champs "email" et "password"
@@ -71,12 +71,13 @@ const Login = () => {
     // et la soumission du formulaire déclenchée par la fonction "submit"
     return (
         <Fragment>
-            
-                
-                {state.isLogged ?
-                        <UserIsLogged />
-                    : (
-                    <div className ="connect">
+            {state.isLogged ? 
+            (state.user.role_id === 1 ? 
+               <Navigate to="/admin" replace={true} /> 
+            : 
+                <Navigate to="/" replace={true} />)
+            : 
+                <div className ="connect">
                             <p>se connecter</p>
                         <form onSubmit={submit}>
                             <input type='text' name='email' value={info.email} onChange={handleChange} placeholder='email' />
@@ -91,11 +92,8 @@ const Login = () => {
                             </NavLink>
                         </div>
                     </div>
-                    
-                        
-                    )
-                }
                 
+                }
         </Fragment>
     )
 }

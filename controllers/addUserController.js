@@ -24,7 +24,8 @@ export default async(req, res) => {
 
         // error a la verrification de l'email
         if (emailPresent === undefined) {
-            return
+            return alert("Cette adresse mail n'existe pas")
+            
         }
 
         // Email deja present en BDD 

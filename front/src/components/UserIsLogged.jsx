@@ -1,7 +1,6 @@
 import React from "react"
 import { StoreContext } from "../tools/context.js"
 import axios from "axios"
-
 const UserIsLogged = () => {
 
     const [state, dispatch] = React.useContext(StoreContext)

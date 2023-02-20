@@ -60,7 +60,6 @@ export default async (req, res) => {
      return res.json({response : "information erronée"})
      
     }
-    console.log(result)
     // Génération d'une réponse pour l'utilisateur
     const response = await generateResponse(result[0])
 

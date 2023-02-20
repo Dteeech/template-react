@@ -6,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: $colorDarkBlue;
 }
 
 code {
@@ -13,3 +14,33 @@ code {
     monospace;
 }
 
+*{
+  box-sizing:border-box;
+}
+.main {
+  
+  text-align: center;
+  color:$colorSecondaryWhite;
+  .nav ul {
+    display: flex;
+    justify-content: space-between;
+    li {
+      list-style: none;  
+        a{
+          text-decoration: none;
+          color:$colorSecondaryWhite;
+          transition-duration:1s;
+          margin: 50px;
+        }
+        a:hover {
+          color: $colorPink;
+          font-size: 1.5rem;
+        }
+    }
+  }
+  h1{
+     color:$colorSecondaryWhite; 
+    }
+  
+}
+  
