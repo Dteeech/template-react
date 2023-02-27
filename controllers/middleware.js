@@ -4,8 +4,8 @@ import {verifyToken} from "../config/token.js"
 const ADMIN_ROLE_ID = 1
 
 const paths = {
-  ADMIN: ['TESTME'],
-  USER: ['userPath'],
+  ADMIN: [],
+  USER: [],
   PUBLIC : []
 };
 

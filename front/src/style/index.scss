@@ -41,6 +41,10 @@ code {
   h1{
      color:$colorSecondaryWhite; 
     }
-  
+  .background_image {
+    background-image: url("../assets/img/lorenzo-herrera-p0j-mE6mGo4-unsplash.jpg");
+    height:400vh;
+    background-size: contain;background-repeat: no-repeat;
+  }
 }
   

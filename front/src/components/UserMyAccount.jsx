@@ -1,11 +1,13 @@
 // 
 import { BASE_URL } from '../tools/constante.js'
-import { useEffect, useState, Fragment } from "react"
-import { NavLink } from 'react-router-dom'
+import { useEffect, useState, Fragment, useContext } from "react"
+import UserIsLogged from "./UserIsLogged.jsx"
+import {StoreContext} from "../tools/context.js"
 import axios from 'axios'
 import { useParams } from "react-router-dom"
 
 const UserMyAccount = () => {
+    const [state, dispatch] = useContext(StoreContext)
     const [userInfos, setUserInfos] = useState('')
     const { userId } = useParams()
     const [isLoading, setIsLoading] = useState(true)
@@ -60,7 +62,7 @@ const UserMyAccount = () => {
     }
 
     return (
-
+    <Fragment>
         <form onSubmit={submit}>
             <input type='text' name='first_name' 
             placeholder='nom' onChange={handleChange} 
@@ -75,7 +77,16 @@ const UserMyAccount = () => {
             <button onClick={() => deleteUser(userId)}> supprimer le compte </button>
             <input type='submit' />
         </form>
+                   
+                   
+                    {state.isLogged ?
+                (<UserIsLogged />)
+                
+                : (<a href="/login">Se connecter</a>)
+                
+            }
 
+    </Fragment> 
     )
 
 }

@@ -42,15 +42,15 @@ const routesUPLOAD = [
 ]
 
 routesGET.map((item) => {
-    router.get(item.route, middleware, item.controller);
+    router.get(item.route, item.controller);
 })
 
 routesPOST.map((item) => {
-    router.post(item.route, middleware, item.controller);
+    router.post(item.route, item.controller);
 })
 
 routesUPLOAD.map((item) => {
-    router.post(item.route, middleware, uploadFileMiddleware, item.controller)
+    router.post(item.route, uploadFileMiddleware, item.controller)
 })
 
 export default router
