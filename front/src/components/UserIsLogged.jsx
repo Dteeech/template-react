@@ -8,7 +8,7 @@ const UserIsLogged = () => {
     const logout = () => {
         localStorage.removeItem('jwtToken')
         dispatch({ type: "LOGOUT" })
-        delete axios.defaults.heeader.common['Authorization']
+        delete axios.defaults.header.common['Authorization']
     }
     return (
         <div>

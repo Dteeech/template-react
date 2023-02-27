@@ -1,4 +1,4 @@
-import { useParams, } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import axios from "axios"
 import { BASE_URL } from "../../tools/constante.js"
 import { useState, useEffect, Fragment } from "react"

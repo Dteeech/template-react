@@ -18,7 +18,7 @@ const Nav = (props) => {
 
   return (
     <div>
-      <nav class ="nav">
+      <nav className ="nav">
         <ul>
           <li>
             <NavLink to="/">
@@ -42,7 +42,7 @@ const Nav = (props) => {
             </NavLink>)
             :
               (<NavLink to="/login">
-                <i class="fa-solid fa-user"></i>
+                <i className="fa-solid fa-user"></i>
               </NavLink>)
           }
           </li>

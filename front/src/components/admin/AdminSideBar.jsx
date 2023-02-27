@@ -24,6 +24,16 @@ const AdminSideBar = (props) => {
             Users list
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/admin/addProduct">
+            Ajout d'un produit
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/admin/listProducts">
+            Liste des produits
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
