@@ -4,8 +4,11 @@ const reducer = (state, action) => {
             console.log(action)
             return{
                 ...state,
-                user: action.payload,
-                isLogged : true
+                user: {
+                    isLogged:true,
+                    isAdmin: action.payload.admin,
+                    ...action.payload
+                }
             }
         case 'LOGOUT':
             return {

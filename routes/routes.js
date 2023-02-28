@@ -14,12 +14,14 @@ import allProducts from "../controllers/admin/allProducts.js"
 import getProductId from "../controllers/admin/getProductId.js"
 import updateProduct from "../controllers/admin/updateProduct.js"
 import updateProductPicture from "../controllers/admin/updateProductPicture.js"
+import checkToken from "../controllers/checkToken.js"
 
 const router = express.Router()
 
 const routesGET = [
     { route: "/admin/allUsers", controller: allUsers },
     {route:"/admin/allProducts", controller: allProducts},
+    {route:"/relogged", controller:checkToken}
 ]
 
 const routesPOST = [

@@ -1,0 +1,174 @@
+/* Appliquer les styles au corps de la page */
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #01012B;
+  /* Utiliser la variable de couleur définie dans settings.scss */
+  color: #D1F7FF;
+}
+
+/* Appliquer les styles à tous les éléments de la page */
+
+* {
+  box-sizing: border-box;
+}
+
+/********************* HOME PAGE*****************/
+
+/* Appliquer les styles à la classe "background_image" */
+
+.background_image {
+  background-image: url("../../assets/img/lorenzo-herrera-p0j-mE6mGo4-unsplash.jpg");
+  width: 100%;
+  height: 100Vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #01012B;
+  background-position: center;
+}
+
+.blur {
+  backdrop-filter: blur(20px);
+  text-align: center;
+}
+
+/* Appliquer les styles à la classe "main" */
+
+.main {
+
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  /* Utiliser la variable de couleur définie dans settings.scss */
+}
+
+/********************* NAVBAR*****************/
+
+.nav ul {
+  margin: 20px;
+  list-style: none;
+}
+
+/* Appliquer les styles aux liens dans les éléments de la liste */
+
+.nav ul li a {
+  text-decoration: none;
+  color: #D1F7FF;
+  /* Utiliser la variable de couleur définie dans settings.scss */
+  transition-duration: 1s;
+  margin: 50px;
+
+}
+
+/* Appliquer les styles aux liens survolés */
+
+.nav ul li a:hover {
+  color: #FF2A6D;
+  /* Utiliser la variable de couleur définie dans settings.scss */
+  font-size: 1.5rem;
+}
+/********************* NAVBAR*****************/
+
+
+/* Appliquer les styles au titre de niveau 1 */
+
+.mainHome h1 {
+  font-family: 'DePixel', sans-serif;
+  text-align: center;
+  color: #D1F7FF;
+  font-size: 5vw;
+  line-height: 5vw;
+  text-shadow: 0 0 3vw #2356FF;
+  animation: flux 2s linear infinite;
+  -moz-animation: flux 2s linear infinite;
+  -webkit-animation: flux 2s linear infinite;
+  -o-animation: flux 2s linear infinite;
+
+}
+@keyframes flux {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+    color: #28D7FE;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+    color: #146C80;
+  }
+}
+
+.mainHome .space {
+  height:80vh;
+}
+
+.preshop {
+  width:100%;
+  height:100vh;
+}
+
+.preshop div {
+  display:flex;
+  
+  text-align:center;
+  margin:auto;
+}
+.preshop div .home_console {
+  
+}
+.preshop div .home_jeux{
+  
+}
+/******************************  MOBILE ***********************/
+
+/* Styles spécifiques aux mobiles */
+
+@media only screen and (max-width: 768px) {
+
+  /* Appliquer les styles aux éléments de la liste */
+  .nav ul {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Appliquer les styles aux éléments de la liste */
+  .nav ul li {
+    margin: 10px 0;
+  }
+
+  /* Appliquer les styles au titre de niveau 1 */
+  h1 {
+    font-size: 1.5rem;
+    font-family: 'DePixel', sans-serif;
+  }
+}
+
+/******************************  TABLETTE ***********************/
+
+/* Styles spécifiques aux tablettes et au-delà */
+
+@media only screen and (min-width: 769px) {
+  /* Appliquer les styles à la liste dans la classe "nav" */
+  .nav ul {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    padding: 10px;
+  }
+  /* Appliquer les styles aux éléments de la liste */
+  .nav ul li {
+    list-style: none;
+    margin: 0;
+  }
+}

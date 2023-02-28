@@ -79,7 +79,7 @@ const UserMyAccount = () => {
         </form>
                    
                    
-                    {state.isLogged ?
+                    {state.user.isLogged ?
                 (<UserIsLogged />)
                 
                 : (<a href="/login">Se connecter</a>)

@@ -8,7 +8,7 @@ const AdminHome = () => {
     return(
         <Fragment>
             <h1>Admin</h1>
-            {state.isLogged ?
+            {state.user.isLogged ?
                 (<UserIsLogged />)
                 
                 : (<a href="/login">Se connecter</a>)

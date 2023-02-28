@@ -71,7 +71,7 @@ const Login = () => {
     // et la soumission du formulaire déclenchée par la fonction "submit"
     return (
         <Fragment>
-            {state.isLogged ? 
+            {state.user.isLogged ? 
             (state.user.role_id === 1 ? 
                <Navigate to="/admin" replace={true} /> 
             : 
@@ -91,6 +91,9 @@ const Login = () => {
                                 S'enregistrer
                             </NavLink>
                         </div>
+                        <NavLink to="/">
+                            Accueil
+                        </NavLink>
                     </div>
                 
                 }

@@ -3,6 +3,7 @@ import { useEffect, useContext } from 'react'
 import axios from 'axios'
 import { StoreContext } from '../tools/context.js'
 import AdminSideBar from './admin/AdminSideBar.jsx'
+import gamepad from '../assets/img/gamepad.svg'
 
 const Nav = (props) => {
   const [state, dispatch] = useContext(StoreContext)
@@ -20,23 +21,9 @@ const Nav = (props) => {
     <div>
       <nav className ="nav">
         <ul>
+
           <li>
-            <NavLink to="/">
-              Accueil
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/consoles">
-              Consoles
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/jeux">
-              Jeux
-            </NavLink>
-          </li>
-          <li>
-          {state.isLogged ?
+          {state.user.isLogged ?
             (<NavLink to={`/MyAccount/${state.user.id}`}>
               <i class="fa-solid fa-user"></i>
             </NavLink>)
@@ -49,7 +36,9 @@ const Nav = (props) => {
         </ul>
       </nav>
       {state.user.role_id === 1 &&
-            <AdminSideBar />
+            <NavLink to="/admin/AdminPanel">
+              Panel Admin
+            </NavLink> 
           }
     </div>
   );

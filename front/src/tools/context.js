@@ -8,7 +8,11 @@ const StoreContext = React.createContext();
 const initialState = {
     
     isLogged: false,
-    user:{}
+    user:{
+        isLogged:false,
+        isAdmin:false,
+        id:null
+    }
 }
 
 // Exportation du contexte de store (magasin) et de l'état initial
