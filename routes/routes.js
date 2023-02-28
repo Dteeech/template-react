@@ -14,14 +14,16 @@ import allProducts from "../controllers/admin/allProducts.js"
 import getProductId from "../controllers/admin/getProductId.js"
 import updateProduct from "../controllers/admin/updateProduct.js"
 import updateProductPicture from "../controllers/admin/updateProductPicture.js"
+import allProductsUser from "../controllers/allProductsUser.js"
 import checkToken from "../controllers/checkToken.js"
 
 const router = express.Router()
 
 const routesGET = [
     { route: "/admin/allUsers", controller: allUsers },
-    {route:"/admin/allProducts", controller: allProducts},
-    {route:"/relogged", controller:checkToken}
+    { route: "/admin/allProducts", controller: allProducts },
+    { route: "/allProductsUser", controller: allProductsUser },
+    { route: "/relogged", controller: checkToken }
 ]
 
 const routesPOST = [
@@ -31,28 +33,28 @@ const routesPOST = [
     { route: "/deleteUserId", controller: deleteUserId },
     { route: "/editUserById", controller: editUserById },
     { route: "/admin/editInfosUser", controller: editInfosUser },
-    {route: "/admin/deleteProduct", controller: deleteProduct},
-    {route:"/admin/getProductId", controller: getProductId},
-    {route: "/admin/updateProductId", controller: updateProduct}
-
+    { route: "/admin/deleteProduct", controller: deleteProduct },
+    { route: "/admin/getProductId", controller: getProductId },
+    
+    { route: "/admin/updateProduct", controller: updateProduct }
 ]
 
 const routesUPLOAD = [
-    {route: "/admin/addProduct", controller: addProduct},
-    {route:"/admin/updateProductPicture", controller: updateProductPicture}
-    
+    { route: "/admin/addProduct", controller: addProduct },
+    { route: "/admin/updateProductPicture", controller: updateProductPicture }
+
 ]
 
 routesGET.map((item) => {
-    router.get(item.route, item.controller);
+    router.get(item.route, middleware, item.controller);
 })
 
 routesPOST.map((item) => {
-    router.post(item.route, item.controller);
+    router.post(item.route, middleware, item.controller);
 })
 
 routesUPLOAD.map((item) => {
-    router.post(item.route, uploadFileMiddleware, item.controller)
+    router.post(item.route, middleware, uploadFileMiddleware, item.controller)
 })
 
 export default router

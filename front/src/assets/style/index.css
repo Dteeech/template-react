@@ -19,6 +19,8 @@ body {
 
 * {
   box-sizing: border-box;
+  margin:0;
+  padding:0;
 }
 
 /********************* HOME PAGE*****************/
@@ -36,8 +38,11 @@ body {
 }
 
 .blur {
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
   text-align: center;
+  margin:auto;
+  padding:0;
+  width:48%;
 }
 
 /* Appliquer les styles à la classe "main" */
@@ -86,6 +91,9 @@ body {
 
 .mainHome h1 {
   font-family: 'DePixel', sans-serif;
+  margin:auto;
+  margin-top:180px;
+  padding: 0;
   text-align: center;
   color: #D1F7FF;
   font-size: 5vw;

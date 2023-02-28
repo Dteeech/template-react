@@ -87,7 +87,7 @@ const Login = () => {
                         {messErr.length > 0 && <p>{messErr}</p>}
                         <div>
                             <p>Pas encore de compte ? </p>
-                            <NavLink to="/addUser">
+                            <NavLink to="/register">
                                 S'enregistrer
                             </NavLink>
                         </div>
