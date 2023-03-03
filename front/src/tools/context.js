@@ -6,7 +6,10 @@ const StoreContext = React.createContext();
 
 // Initialisation de l'état du store (magasin)
 const initialState = {
-    cart:{},
+    cart:[]
+        
+    ,
+    products:[],
     user:{
         isLogged:false,
         isAdmin:false,

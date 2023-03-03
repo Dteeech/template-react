@@ -3,22 +3,26 @@ import axios from "axios"
 import { BASE_URL, BASE_IMG } from "../../tools/constante.js"
 import { useContext } from "react"
 
-const useCart = () => {
+const useCart = (product, quantity, userId) => {
     const [ state, dispatch ] = useContext(StoreContext)
 
     // Ajouter un produit au panier
-    const addToCart = async(productId, quantity) => {
+    const addToCart = async(product, quantity, userId) => {
+        console.log(product)
         try {
             const response = await axios.post(
                 `${BASE_URL}/cart/addToCart`, {
-                    product_id: productId,
+                    user_id: userId,
+                    product_id: product.id,
                     quantity,
                 }
             )
+            
+            product.quantity = quantity
 
             dispatch({
                 type: "ADD_TO_CART",
-                payload: response.data,
+                payload: product,
             });
         }
         catch (error) {
@@ -41,7 +45,7 @@ const useCart = () => {
     }
 
     return {
-        cart: state.cart,
+       
         addToCart,
         removeFromCart,
     }

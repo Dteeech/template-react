@@ -16,14 +16,20 @@ const reducer = (state, action) => {
                 user: {},
                 isLogged: false
             }
+        case "ALL_PRODUCTS":
+            return {
+                ...state,
+                products: action.payload,
+                
+            }
 
         case "ADD_TO_CART":
             // Vérification de la disponibilité du produit avant de l'ajouter au panier
             // Si le produit est disponible, on l'ajoute au panier et on décrémente la quantité en stock
             // Sinon, on renvoie simplement l'état courant du panier
-            const productToAdd = state.products.find(product => product.id === action.payload.productId);
-            if (productToAdd.quantityInStock >= action.payload.quantity) {
-                const existingItem = state.cart.find(item => item.productId === action.payload.productId);
+            const productToAdd = state.products.find(product => product.id === action.payload.id);
+            if (productToAdd.stock >= action.payload.quantity) {
+                const existingItem = state.cart.find(item => item.productId === action.payload.id);
                 if (existingItem) {
                     return {
                         ...state,
@@ -38,7 +44,7 @@ const reducer = (state, action) => {
                 else {
                     return {
                         ...state,
-                        cart: [...state.cart, { productId: action.payload.productId, quantity: action.payload.quantity }]
+                        cart: [...state.cart, action.payload]
                     };
                 }
             }
