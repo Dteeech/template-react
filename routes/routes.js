@@ -14,15 +14,16 @@ import allProducts from "../controllers/admin/allProducts.js"
 import getProductId from "../controllers/admin/getProductId.js"
 import updateProduct from "../controllers/admin/updateProduct.js"
 import updateProductPicture from "../controllers/admin/updateProductPicture.js"
-import allProductsUser from "../controllers/allProductsUser.js"
 import checkToken from "../controllers/checkToken.js"
-
+import addToCart from "../controllers/addToCart.js"
+import deleteFromCart from "../controllers/deleteFromCart.js"
+ 
 const router = express.Router()
 
 const routesGET = [
     { route: "/admin/allUsers", controller: allUsers },
     { route: "/admin/allProducts", controller: allProducts },
-    { route: "/allProductsUser", controller: allProductsUser },
+    
     { route: "/relogged", controller: checkToken }
 ]
 
@@ -35,7 +36,8 @@ const routesPOST = [
     { route: "/admin/editInfosUser", controller: editInfosUser },
     { route: "/admin/deleteProduct", controller: deleteProduct },
     { route: "/admin/getProductId", controller: getProductId },
-    
+    { route: "/cart/addToCart", controller: addToCart },
+    { route: "/cart/deleteFromCart", controller: deleteFromCart },
     { route: "/admin/updateProduct", controller: updateProduct }
 ]
 

@@ -21,7 +21,12 @@ const Nav = (props) => {
     <div>
       <nav className ="nav">
         <ul>
-
+          <li>
+            <NavLink to="/cart">
+              {/*<img className="gamepad_svg" src={gamepad}/> */}
+              <i class="fa-solid fa-cart-shopping"></i>
+            </NavLink>
+          </li>
           <li>
           {state.user.isLogged ?
             (<NavLink to={`/MyAccount/${state.user.id}`}>
@@ -36,9 +41,7 @@ const Nav = (props) => {
         </ul>
       </nav>
       {state.user.role_id === 1 &&
-            <NavLink to="/admin/AdminPanel">
-              Panel Admin
-            </NavLink> 
+            <AdminSideBar />
           }
     </div>
   );

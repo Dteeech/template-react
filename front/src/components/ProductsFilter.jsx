@@ -1,25 +1,33 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useEffect, useContext } from "react";
 import { BASE_URL, BASE_IMG } from "../tools/constante.js"
+import { StoreContext } from "../tools/context.js"
+import useCart from "./Hooks/useCart.jsx"
 import axios from "axios";
 
 const ProductsFilter = () => {
+  const { addToCart } = useCart()
   const [products, setProducts] = useState([]);
   const [type, setType] = useState("consoles"); // "consoles" ou "jeux"
+  const [ state, dispatch ] = useContext(StoreContext)
 
   useEffect(() => {
     axios.get(`${BASE_URL}/admin/allProducts`).then((response) => {
-        console.log(response.data.result)
+      console.log(response.data.result);
       setProducts(response.data.result);
     });
   }, []);
 
   // fonction pour filtrer les produits selon le type sélectionné
+  //useEffect
+  //à sauvegarder dans un state
   const filterProducts = () => {
     if (type === "consoles") {
       return products.filter((product) => product.type_id === 1);
-    } else if (type === "jeux") {
+    }
+    else if (type === "jeux") {
       return products.filter((product) => product.type_id === 2);
-    } else {
+    }
+    else {
       return products; // retourne tous les produits si le type est indéfini
     }
   };
@@ -28,6 +36,10 @@ const ProductsFilter = () => {
   const handleTypeChange = (event) => {
     setType(event.target.value);
   };
+
+  const handleAddToCart = (productId, quantity) => {
+    addToCart(productId, quantity)
+  }
 
   return (
     <div>
@@ -42,9 +54,11 @@ const ProductsFilter = () => {
       <ul>
         {filterProducts().map((product) => {
           return(
-            <Fragment>
+            <Fragment key={product.id}>
               <img src={`${BASE_IMG}/${product.url}`}/>
               <li key={product.id}>{product.name}</li>
+              <li key={product.id}><strong>{product.price}€</strong></li>
+              <button onClick={()=> handleAddToCart(product.id,1)}>Ajouter au panier</button>
             </Fragment>
           )
         }

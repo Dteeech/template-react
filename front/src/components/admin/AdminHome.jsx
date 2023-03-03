@@ -1,6 +1,7 @@
 import UserIsLogged from "../UserIsLogged.jsx"
 import {StoreContext} from "../../tools/context.js"
 import {useContext} from "react"
+import {NavLink} from "react-router-dom"
 import {Fragment} from "react"
 
 const AdminHome = () => {
@@ -12,8 +13,10 @@ const AdminHome = () => {
                 (<UserIsLogged />)
                 
                 : (<a href="/login">Se connecter</a>)
-                
             }
+            <NavLink to="/">
+                Accueil
+            </NavLink>
         </Fragment>
     
     ) 

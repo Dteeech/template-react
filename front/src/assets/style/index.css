@@ -39,10 +39,11 @@ body {
 
 .blur {
   backdrop-filter: blur(10px);
+  display:block;
   text-align: center;
   margin:auto;
-  padding:0;
-  width:48%;
+  padding: 10px, 0, 15px, 0;
+  width:100%;
 }
 
 /* Appliquer les styles à la classe "main" */
@@ -62,6 +63,8 @@ body {
 /********************* NAVBAR*****************/
 
 .nav ul {
+  display:flex;
+  justify-content:space-around;
   margin: 20px;
   list-style: none;
 }
@@ -92,7 +95,6 @@ body {
 .mainHome h1 {
   font-family: 'DePixel', sans-serif;
   margin:auto;
-  margin-top:180px;
   padding: 0;
   text-align: center;
   color: #D1F7FF;

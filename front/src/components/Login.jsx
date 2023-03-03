@@ -70,35 +70,67 @@ const Login = () => {
     // Rendu du formulaire de connexion avec les inputs "email" et "password"
     // et la soumission du formulaire déclenchée par la fonction "submit"
     return (
-        <Fragment>
-            {state.user.isLogged ? 
-            (state.user.role_id === 1 ? 
-               <Navigate to="/admin" replace={true} /> 
-            : 
-                <Navigate to="/" replace={true} />)
-            : 
-                <div className ="connect">
-                            <p>se connecter</p>
-                        <form onSubmit={submit}>
-                            <input type='text' name='email' value={info.email} onChange={handleChange} placeholder='email' />
-                            <input type='password' name='password' value={info.password} onChange={handleChange} placeholder='password' />
-                            <input type="submit" />
-                        </form>
-                        {messErr.length > 0 && <p>{messErr}</p>}
-                        <div>
-                            <p>Pas encore de compte ? </p>
-                            <NavLink to="/register">
-                                S'enregistrer
-                            </NavLink>
-                        </div>
-                        <NavLink to="/">
-                            Accueil
-                        </NavLink>
-                    </div>
-                
-                }
-        </Fragment>
-    )
-}
+  <Fragment>
+    {state.user.isLogged ? (
+      state.user.role_id === 1 ? (
+        <Navigate to="/" replace={true} />
+      ) : (
+        <div className="connect">
+          <p>se connecter</p>
+          <form onSubmit={submit}>
+            <input
+              type="text"
+              name="email"
+              value={info.email}
+              onChange={handleChange}
+              placeholder="email"
+            />
+            <input
+              type="password"
+              name="password"
+              value={info.password}
+              onChange={handleChange}
+              placeholder="password"
+            />
+            <input type="submit" />
+          </form>
+          {messErr.length > 0 && <p>{messErr}</p>}
+          <div>
+            <p>Pas encore de compte ? </p>
+            <NavLink to="/register">S'enregistrer</NavLink>
+          </div>
+          <NavLink to="/">Accueil</NavLink>
+        </div>
+      )
+    ) : (
+      <div className="connect">
+        <p>se connecter</p>
+        <form onSubmit={submit}>
+          <input
+            type="text"
+            name="email"
+            value={info.email}
+            onChange={handleChange}
+            placeholder="email"
+          />
+          <input
+            type="password"
+            name="password"
+            value={info.password}
+            onChange={handleChange}
+            placeholder="password"
+          />
+          <input type="submit" />
+        </form>
+        {messErr.length > 0 && <p>{messErr}</p>}
+        <div>
+          <p>Pas encore de compte ? </p>
+          <NavLink to="/register">S'enregistrer</NavLink>
+        </div>
+        <NavLink to="/">Accueil</NavLink>
+      </div>
+    )}
+  </Fragment>
+);}
 
 export default Login

@@ -47,7 +47,7 @@ const ListProducts = () => {
                 </ul>
                 <img src={`${BASE_IMG}/${product.url}`} alt="Product image" />
                 <button onClick={() => deleteProduct(product.id, product.url)}>X</button>
-                    <NavLink to={`/admin/product/edit/${product.id}`}><button>Modifier</button>
+                    <NavLink to={`/admin/products/edit/${product.id}`}><button>Modifier</button>
                     </NavLink>
             </div>
             )

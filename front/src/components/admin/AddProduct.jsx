@@ -21,7 +21,11 @@ const AddProduct = () => {
     // Fonction qui sera appelée lorsque le formulaire est soumis
     const submit = async(e) => {
         e.preventDefault();
-
+        
+        if (isNaN(productInfos.price) || isNaN(productInfos.stock)) {
+        alert("Le prix et le stock doivent être des nombres");
+        return;
+        }
         // Initialisation d'un objet FormData pour envoyer les données du formulaire
         const dataFile = new FormData();
 
