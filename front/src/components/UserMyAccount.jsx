@@ -23,7 +23,6 @@ const UserMyAccount = () => {
         axios.post(`${BASE_URL}/getUserId`, { id: userId })
             .catch(err => console.log(err))
             .then(res => {
-                console.log(res)
                 const data = res.data.result[0]
                 setUserInfos(data)
             })

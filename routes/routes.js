@@ -17,13 +17,13 @@ import updateProductPicture from "../controllers/admin/updateProductPicture.js"
 import checkToken from "../controllers/checkToken.js"
 import addToCart from "../controllers/addToCart.js"
 import deleteFromCart from "../controllers/deleteFromCart.js"
+import getCartFromUserId from "../controllers/getCartFromUserId.js"
  
 const router = express.Router()
 
 const routesGET = [
     { route: "/admin/allUsers", controller: allUsers },
     { route: "/admin/allProducts", controller: allProducts },
-    
     { route: "/relogged", controller: checkToken }
 ]
 
@@ -38,7 +38,9 @@ const routesPOST = [
     { route: "/admin/getProductId", controller: getProductId },
     { route: "/cart/addToCart", controller: addToCart },
     { route: "/cart/deleteFromCart", controller: deleteFromCart },
-    { route: "/admin/updateProduct", controller: updateProduct }
+    { route: "/admin/updateProduct", controller: updateProduct },
+    { route: "/cart/getCart", controller: getCartFromUserId },
+    
 ]
 
 const routesUPLOAD = [

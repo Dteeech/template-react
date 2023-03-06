@@ -42,7 +42,6 @@ const ListProducts = () => {
                     <li>Name: {product.name} </li>
                     <li>Type ID: {product.type_id}</li>
                     <li>Price: {product.price}</li>
-                    <li>Stock: {product.stock}</li>
                     <li>Categorie ID: {product.category_id}</li>
                 </ul>
                 <img src={`${BASE_IMG}/${product.url}`} alt="Product image" />

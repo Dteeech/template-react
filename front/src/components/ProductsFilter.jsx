@@ -7,50 +7,38 @@ import axios from "axios";
 
 const ProductsFilter = () => {
   const { addToCart } = useCart()
-  const [displayedProducts, setDisplayedProducts] = useState([]);
-  const [type, setType] = useState("consoles"); // "consoles" ou "jeux"
+  const [displayedProducts, setDisplayedProducts] = useState({consoles:null,
+    jeux: null
+  });
+  const [type, setType] = useState(undefined); // "consoles" ou "jeux"
   const [state, dispatch] = useContext(StoreContext)
   const user_id = state.user.id
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/admin/allProducts`).then((response) => {
-        console.log(response.data.result);
+    axios.get(`${BASE_URL}/admin/allProducts`)
+    .then((response) => {
         dispatch({ type: "ALL_PRODUCTS", payload: response.data.result })
+        const data = {...displayedProducts}
+        data.consoles = response.data.result.filter((product) => product.type_id === 1)
+        data.jeux = response.data.result.filter((product) => product.type_id === 2)
+        setDisplayedProducts(data)  //consoles
       })
       .catch(err => { console.log(err) })
-      .then(res => {
-        if (state.products.length > 0) {
-          filterProducts()
-        }
-      })
   }, []);
-
-  // fonction pour filtrer les produits selon le type sélectionné
-  //useEffect
-  //à sauvegarder dans un state
-  const filterProducts = () => {
-    console.log(state.products)
-    if (type === "consoles") {
-      setDisplayedProducts(state.products.filter((product) => product.type_id !== 1));
-    }
-    else if (type === "jeux") {
-      setDisplayedProducts(state.products.filter((product) => product.type_id !== 2));
-    }
-  };
+  
 
   // fonction pour changer le type sélectionné
   const handleTypeChange = (event) => {
     setType(event.target.value);
-    filterProducts()
+    
   };
 
-  const handleAddToCart = async (product, quantity) => {
-    console.log({product, quantity,user_id })
-    
-    await addToCart(product, quantity, user_id)
-    
+  const handleAddToCart = async(product) => {
+
+    await addToCart(product, user_id)
+
   }
-  
+
   return (
     <div>
     <Nav />
@@ -58,12 +46,13 @@ const ProductsFilter = () => {
       <div>
         <label htmlFor="type">Sélectionner Jeux ou consoles :</label>
         <select id="type" value={type} onChange={handleTypeChange}>
+        <option value={undefined}>Choisir une catégorie</option>
           <option value="consoles">Consoles</option>
           <option value="jeux">Jeux</option>
         </select>
       </div>
       <ul>
-        {displayedProducts.map((product,i) => {
+        {type && displayedProducts[type].map((product,i) => { //valeur de type a undefined et affichage quand le select est effectif
           return(
             <Fragment key={`${product.id}-${type}`}>
               <img src={`${BASE_IMG}/${product.url}`}/>

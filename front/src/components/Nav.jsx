@@ -24,13 +24,19 @@ const Nav = (props) => {
           <li>
             <NavLink to="/cart">
               {/*<img className="gamepad_svg" src={gamepad}/> */}
-              <i class="fa-solid fa-cart-shopping"></i>
+              <i className="fa-solid fa-cart-shopping"></i>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/">
+              Home
+              {/*<i class="fa-light fa-house-blank"></i>*/}
             </NavLink>
           </li>
           <li>
           {state.user.isLogged ?
             (<NavLink to={`/MyAccount/${state.user.id}`}>
-              <i class="fa-solid fa-user"></i>
+              <i className="fa-solid fa-user"></i>
             </NavLink>)
             :
               (<NavLink to="/login">

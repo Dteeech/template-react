@@ -1,7 +1,6 @@
 const reducer = (state, action) => {
     switch (action.type) {
         case 'LOGIN':
-            console.log(action)
             return {
                 ...state,
                 user: {
@@ -20,7 +19,7 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 products: action.payload,
-                
+
             }
 
         case "ADD_TO_CART":
@@ -52,6 +51,12 @@ const reducer = (state, action) => {
                 return state;
             }
 
+        case "GET_CART":
+            return {
+                ...state,
+                cart: action.payload
+            }
+
         case "REMOVE_FROM_CART":
             // Suppression d'un article du panier
             return {
@@ -65,6 +70,7 @@ const reducer = (state, action) => {
                 ...state,
                 cart: []
             };
+
 
         default:
             return state;

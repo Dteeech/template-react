@@ -40,7 +40,6 @@ const EditProduct = () => {
                 type_id: product.type_id,
                 name: product.name,
                 price: product.price,
-                stock: product.stock,
                 category_id: product.category_id
             })
             .catch(err => console.log(err))
@@ -102,13 +101,6 @@ const EditProduct = () => {
                         name="price" 
                         onChange ={handleChange} 
                         value={product.price}/>
-                </label>
-                <label>
-                    stock
-                    <input type="number" 
-                    name="stock" 
-                    onChange ={handleChange} 
-                    value={product.stock}/>
                 </label>
                 <label>
                     Categorie :

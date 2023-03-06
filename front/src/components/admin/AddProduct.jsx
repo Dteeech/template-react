@@ -8,7 +8,6 @@ const AddProduct = () => {
         name: "",
         type_id: 1,
         price: "",
-        stock: "",
         category_id: ""
     })
 
@@ -21,11 +20,8 @@ const AddProduct = () => {
     // Fonction qui sera appelée lorsque le formulaire est soumis
     const submit = async(e) => {
         e.preventDefault();
-        
-        if (isNaN(productInfos.price) || isNaN(productInfos.stock)) {
-        alert("Le prix et le stock doivent être des nombres");
-        return;
-        }
+
+
         // Initialisation d'un objet FormData pour envoyer les données du formulaire
         const dataFile = new FormData();
 
@@ -38,7 +34,6 @@ const AddProduct = () => {
         dataFile.append("name", productInfos.name)
         dataFile.append("type_id", productInfos.type_id)
         dataFile.append("price", productInfos.price)
-        dataFile.append("stock", productInfos.stock)
         dataFile.append("category_id", productInfos.category_id)
 
         // Ajout de chaque fichier à l'objet FormData
@@ -50,7 +45,7 @@ const AddProduct = () => {
         // Envoi de la requête AJAX avec l'objet FormData contenant les données du formulaire et les fichiers
         axios.post(`${BASE_URL}/admin/addProduct`, dataFile)
 
-            
+
             .then((res) => {
                 console.log(res.data);
                 alert('Produit créé avec succès !');
@@ -98,13 +93,6 @@ const AddProduct = () => {
                             value={productInfos.price}/>
                         </label>
                         <label>
-                            Stock:
-                            <input type="number" 
-                            name="stock" 
-                            onChange ={handleChange} 
-                            value={productInfos.stock}/>
-                        </label>
-                        <label>
                             Categorie
                         <select name="category_id" 
                         onChange ={handleChange} 
@@ -133,13 +121,7 @@ const AddProduct = () => {
                         onChange ={handleChange} 
                         value={productInfos.price}/>
                       </label>
-                      <label>
-                        Stock:
-                        <input type="number" 
-                        name="stock" 
-                        onChange ={handleChange} 
-                        value={productInfos.stock}/>
-                      </label>
+                      
                       <label>
                         <select name="category_id" 
                         onChange ={handleChange} 
@@ -151,20 +133,17 @@ const AddProduct = () => {
                             <option value="8">aventure / action </option>
                         </select>
                       </label>
-                      
-                      
                     </div>)
                 
               }
               <h2>Ajouter / Modifier l'image</h2>
-                <label for='picture'>
+                <label htmlFor='picture'>
                   Upload picture:
                   <input type='file' id='picture' name='picture' />
                 </label>
                 
                 <button type='submit'>Create Product</button>
             </form>
-                          
         </Fragment>
     );
 }
