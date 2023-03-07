@@ -3,7 +3,6 @@ import { useEffect, useContext } from 'react'
 import axios from 'axios'
 import { StoreContext } from '../tools/context.js'
 import AdminSideBar from './admin/AdminSideBar.jsx'
-import gamepad from '../assets/img/gamepad.svg'
 
 const Nav = (props) => {
   const [state, dispatch] = useContext(StoreContext)
@@ -23,14 +22,13 @@ const Nav = (props) => {
         <ul>
           <li>
             <NavLink to="/cart">
-              {/*<img className="gamepad_svg" src={gamepad}/> */}
+              
               <i className="fa-solid fa-cart-shopping"></i>
             </NavLink>
           </li>
           <li>
             <NavLink to="/">
-              Home
-              {/*<i class="fa-light fa-house-blank"></i>*/}
+              <i class="fa-light fa-house-blank"></i>
             </NavLink>
           </li>
           <li>

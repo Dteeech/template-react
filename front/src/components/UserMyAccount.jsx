@@ -4,7 +4,8 @@ import { useEffect, useState, Fragment, useContext } from "react"
 import UserIsLogged from "./UserIsLogged.jsx"
 import {StoreContext} from "../tools/context.js"
 import axios from 'axios'
-import { useParams } from "react-router-dom"
+import { useParams, NavLink } from "react-router-dom"
+
 
 const UserMyAccount = () => {
     const [state, dispatch] = useContext(StoreContext)
@@ -84,7 +85,7 @@ const UserMyAccount = () => {
                 : (<a href="/login">Se connecter</a>)
                 
             }
-
+            <NavLink to="/"> Accueil </NavLink>
     </Fragment> 
     )
 

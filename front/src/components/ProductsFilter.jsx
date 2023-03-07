@@ -40,7 +40,7 @@ const ProductsFilter = () => {
   }
 
   return (
-    <div>
+    <div className="shopBackground">
     <Nav />
       <h1>Produits</h1>
       <div>
@@ -54,12 +54,14 @@ const ProductsFilter = () => {
       <ul>
         {type && displayedProducts[type].map((product,i) => { //valeur de type a undefined et affichage quand le select est effectif
           return(
-            <Fragment key={`${product.id}-${type}`}>
-              <img src={`${BASE_IMG}/${product.url}`}/>
-              <li>{product.name}</li>
-              <li><strong>{product.price}€</strong></li>
-              <button onClick={()=> handleAddToCart(product,1)}>Ajouter au panier</button>
-            </Fragment>
+            <div className="productCard" key={`${product.id}-${type}`}>
+              <img className="productImage" src={`${BASE_IMG}/${product.url}`}/>
+              <div className="productCaption">
+                <li>{product.name}</li>
+                <li><strong>{product.price}€</strong></li>
+                <button onClick={()=> handleAddToCart(product,1)}>Ajouter au panier</button>
+              </div>  
+            </div>
           )
         }
         )}

@@ -1,4 +1,3 @@
-
 import Nav from "./Nav.jsx"
 import { NavLink } from "react-router-dom"
 import { Fragment } from "react"
@@ -17,11 +16,13 @@ const Home = () => {
                         <h1>Retro Games</h1>
                     
                     </div>
-                    
-                    <NavLink to="/admin/ProductsFilter"> MAGASIN </NavLink>
+                 
+                        <NavLink to="/admin/ProductsFilter">
+                        <i className="fa-solid fa-gamepad">
+                        </i></NavLink>
                     
                 </div>
-                    
+                
             </div>
             
         </Fragment>

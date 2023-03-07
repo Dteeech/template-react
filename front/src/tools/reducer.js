@@ -59,9 +59,10 @@ const reducer = (state, action) => {
 
         case "REMOVE_FROM_CART":
             // Suppression d'un article du panier
+            // old => cart: state.cart.filter(item => item.productId !== action.payload.productId)
             return {
                 ...state,
-                cart: state.cart.filter(item => item.productId !== action.payload.productId)
+                cart: state.cart.filter(item => item.product_id !== action.payload)
             };
 
         case "EMPTY_CART":
