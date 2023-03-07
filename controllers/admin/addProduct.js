@@ -1,11 +1,11 @@
 import { asyncQuery } from "../../config/database.js"
 
 export default async(req, res) => {
-    const { name, type_id, price, stock, category_id, files } = req.body
-    const sql = `INSERT INTO products (name, type_id, price, stock, category_id) 
-                VALUES (?, ?, ?, ?, ?)`
+    const { name, type_id, price, category_id, files } = req.body
+    const sql = `INSERT INTO products (name, type_id, price, category_id) 
+                VALUES (?, ?, ?, ?)`
     try {
-        const paramsSQL = [name, type_id, price, stock, category_id]
+        const paramsSQL = [name, type_id, price, category_id]
         console.log(paramsSQL)
         const createProduct = await asyncQuery(sql, paramsSQL)
         const products_id = createProduct.insertId

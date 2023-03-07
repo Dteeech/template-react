@@ -58,7 +58,7 @@ const ProductsFilter = () => {
               <img className="productImage" src={`${BASE_IMG}/${product.url}`}/>
               <div className="productCaption">
                 <li>{product.name}</li>
-                <li><strong>{product.price}€</strong></li>
+                <li>Prix : <strong>{product.price}€</strong></li>
                 <button onClick={()=> handleAddToCart(product,1)}>Ajouter au panier</button>
               </div>  
             </div>

@@ -7,6 +7,7 @@ import { lengthLimit, checkVide } from "../tools/maxLength.js"
 import { StoreContext } from "../tools/context.js"
 import { useContext } from "react"
 import { Navigate } from "react-router-dom"
+import Nav from "./Nav"
 
 const Login = () => {
     // Déclaration d'un objet "initialState" pour stocker les valeurs par défaut des champs "email" et "password"
@@ -71,13 +72,45 @@ const Login = () => {
     // et la soumission du formulaire déclenchée par la fonction "submit"
     return (
   <Fragment>
+  <Nav />
     {state.user.isLogged ? (
-      state.user.role_id === 1 ? (
+      state.user.isLogged ? (
         <Navigate to="/" replace={true} />
       ) : (
         <div className="connect">
-          <p>se connecter</p>
-          <form onSubmit={submit}>
+          
+          <form className="form" onSubmit={submit}>
+            <p>Se connecter</p>
+              <input
+                type="text"
+                name="email"
+                value={info.email}
+                onChange={handleChange}
+                placeholder="email"
+              />
+              <input
+                type="password"
+                name="password"
+                value={info.password}
+                onChange={handleChange}
+                placeholder="password"
+              />
+              <input type="submit" />
+              <div>
+              <p>Pas encore de compte ? </p>
+              <NavLink to="/register">S'enregistrer</NavLink>
+            </div>
+            <NavLink to="/">Accueil</NavLink>
+          </form>
+          {messErr.length > 0 && <p>{messErr}</p>}
+          
+        </div>
+      )
+    ) : (
+      <div className="connect">
+        
+        <form className="form" onSubmit={submit}>
+          <p>Se connecter</p>
             <input
               type="text"
               name="email"
@@ -93,41 +126,14 @@ const Login = () => {
               placeholder="password"
             />
             <input type="submit" />
-          </form>
-          {messErr.length > 0 && <p>{messErr}</p>}
-          <div>
+            <div>
             <p>Pas encore de compte ? </p>
             <NavLink to="/register">S'enregistrer</NavLink>
           </div>
           <NavLink to="/">Accueil</NavLink>
-        </div>
-      )
-    ) : (
-      <div className="connect">
-        <p>se connecter</p>
-        <form onSubmit={submit}>
-          <input
-            type="text"
-            name="email"
-            value={info.email}
-            onChange={handleChange}
-            placeholder="email"
-          />
-          <input
-            type="password"
-            name="password"
-            value={info.password}
-            onChange={handleChange}
-            placeholder="password"
-          />
-          <input type="submit" />
         </form>
         {messErr.length > 0 && <p>{messErr}</p>}
-        <div>
-          <p>Pas encore de compte ? </p>
-          <NavLink to="/register">S'enregistrer</NavLink>
-        </div>
-        <NavLink to="/">Accueil</NavLink>
+        
       </div>
     )}
   </Fragment>

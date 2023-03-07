@@ -23,10 +23,11 @@ export default async(req, res) => {
                 await deleteFile(url)
             }
             
-            res.json({ result })
+            res.json({ result, url:files })
         }
         catch (error) {
             console.error(`failed to delete file ${fileName}`, error)
+            res.json({error})
         }
 
     })

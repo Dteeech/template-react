@@ -6,7 +6,13 @@ import { useState, useEffect, Fragment } from "react"
 const EditProduct = () => {
 
     const { productId } = useParams()
-    const [product, setProduct] = useState({})
+    const [product, setProduct] = useState({
+        name: "",
+        type_id: 1,
+        price: "",
+        category_id: ""
+    })
+    
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
@@ -35,7 +41,7 @@ const EditProduct = () => {
     const submit = (e) => {
         e.preventDefault()
 
-        axios.post(`${BASE_URL}/admin/updateProductId`, {
+        axios.post(`${BASE_URL}/admin/updateProduct`, {
                 id: product.id,
                 type_id: product.type_id,
                 name: product.name,
@@ -50,7 +56,7 @@ const EditProduct = () => {
     }
 
     const handlePicture = (e) => {
-
+e.preventDefault()
         const dataFile = new FormData()
         const files = { ...e.target.picture.files }
 
@@ -64,9 +70,9 @@ const EditProduct = () => {
 
         axios.post(`${BASE_URL}/admin/updateProductPicture`, dataFile)
             .then(res => {
-                console.log(res)
-                // Rafraîchir la page pour afficher la nouvelle image
-                window.location.reload()
+                const newProduct ={...product} 
+                newProduct.url = res.data.url
+                setProduct(newProduct)
             })
             .catch(err => console.log(err))
 
@@ -77,8 +83,9 @@ const EditProduct = () => {
     }
     return (
         <Fragment>
+            
                 <img src={`${BASE_IMG}/${product.url}`} alt="product image"/>
-            <form onSubmit={submit}>
+                <form onSubmit={submit}>
                 <label>
                     Type de produit :
                     <select name="type_id" 
@@ -88,32 +95,68 @@ const EditProduct = () => {
                         <option value="2">Jeux</option>
                     </select>
                 </label>
-                <label>
+            
+                {product.type_id === 1 ?
+                (<div>
+                    <label>
                     Nom : 
                     <input type="text" 
                         name="name" 
                         onChange={handleChange} 
                         value={product.name}/>
-                </label>
-                <label>
-                    Prix :
-                    <input type="number" 
-                        name="price" 
+                    </label>
+                    <label>
+                        Prix :
+                        <input type="number" 
+                            name="price" 
+                            onChange ={handleChange} 
+                            value={product.price}/>
+                    </label>
+                    <label>
+                        Categorie :
+                        <select name="category_id" 
                         onChange ={handleChange} 
-                        value={product.price}/>
-                </label>
-                <label>
-                    Categorie :
-                    <select name="category_id" 
-                    onChange ={handleChange} 
-                    value={product.category_id}>
-                    <option value="">Choisir une catégorie</option>
-                        <option value="1">Playstation</option>
-                        <option value="2">Nintendo</option>
-                        <option value="3">SEGA</option>
-                        <option value="4">Commodore 64</option>
-                    </select>
-                </label>
+                        value={product.category_id}>
+                        <option value="">Choisir une catégorie</option>
+                            <option value="1">Playstation</option>
+                            <option value="2">Nintendo</option>
+                            <option value="3">SEGA</option>
+                            <option value="4">Commodore 64</option>
+                        </select>
+                    </label>
+                </div>)
+            :
+                (<div>
+                    <label>
+                    Nom : 
+                    <input type="text" 
+                        name="name" 
+                        onChange={handleChange} 
+                        value={product.name}/>
+                    </label>
+                    <label>
+                        Prix :
+                        <input type="number" 
+                            name="price" 
+                            onChange ={handleChange} 
+                            value={product.price}/>
+                    </label>
+                    <label>
+                        Categorie :
+                        <select name="category_id" 
+                        onChange ={handleChange} 
+                        value={product.category_id}>
+                        <option value="">Choisir une catégorie</option>
+                            <option value="5">FPS</option>
+                            <option value="6">RPG</option>
+                            <option value="7">MMORPG</option>
+                            <option value="8">aventure / action</option>
+                        </select>
+                    </label>
+                </div>)
+                
+                
+                }
                 
                 <button type='submit'>modifier le Produit</button>
                 

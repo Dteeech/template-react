@@ -16,11 +16,11 @@ const Home = () => {
                         <h1>Retro Games</h1>
                     
                     </div>
-                 
+                    <div>
                         <NavLink to="/admin/ProductsFilter">
                         <i className="fa-solid fa-gamepad">
                         </i></NavLink>
-                    
+                    </div>
                 </div>
                 
             </div>

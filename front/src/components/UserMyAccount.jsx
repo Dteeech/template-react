@@ -2,9 +2,9 @@
 import { BASE_URL } from '../tools/constante.js'
 import { useEffect, useState, Fragment, useContext } from "react"
 import UserIsLogged from "./UserIsLogged.jsx"
-import {StoreContext} from "../tools/context.js"
+import { StoreContext } from "../tools/context.js"
 import axios from 'axios'
-import { useParams, NavLink } from "react-router-dom"
+import { useParams, NavLink, Navigate } from "react-router-dom"
 
 
 const UserMyAccount = () => {
@@ -36,11 +36,11 @@ const UserMyAccount = () => {
         e.preventDefault()
         console.log(userInfos)
         axios.post(`${BASE_URL}/editUserById`, {
-            id : userInfos.id,
-            last_name: userInfos.last_name,
-            first_name: userInfos.first_name,
-            
-        })
+                id: userInfos.id,
+                last_name: userInfos.last_name,
+                first_name: userInfos.first_name,
+
+            })
             .catch(err => console.log(err))
             .then(res => {
                 console.log(res)
@@ -51,9 +51,16 @@ const UserMyAccount = () => {
 
     const deleteUser = (id) => {
         axios.post(`${BASE_URL}/deleteUserId`, { id })
-            .then(res => console.log(res))
 
             .catch(err => console.log(err))
+            .then(res => {
+                console.log(res)
+                localStorage.removeItem('jwtToken')//suppression du token
+                dispatch({ type: "LOGOUT" })//envoi au reducer
+                delete axios.defaults.header.common['Authorization']
+            })
+
+
     }
 
 
@@ -62,7 +69,7 @@ const UserMyAccount = () => {
     }
 
     return (
-    <Fragment>
+        <Fragment>
         <form onSubmit={submit}>
             <input type='text' name='first_name' 
             placeholder='nom' onChange={handleChange} 
@@ -86,7 +93,7 @@ const UserMyAccount = () => {
                 
             }
             <NavLink to="/"> Accueil </NavLink>
-    </Fragment> 
+    </Fragment>
     )
 
 }

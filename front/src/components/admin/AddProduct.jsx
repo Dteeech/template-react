@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import axios from 'axios'
+import Nav from '../Nav'
 import { BASE_URL, BASE_IMG } from '../../tools/constante.js'
 
 const AddProduct = () => {
@@ -62,6 +63,7 @@ const AddProduct = () => {
     // Retourne le formulaire avec des étiquettes et des champs pour chaque donnée de produit et un bouton de soumission
     return (
         <Fragment>
+            <Nav />
             <form onSubmit={submit} encType="multipart/form-data">
                 Type de produit:
                 <label>

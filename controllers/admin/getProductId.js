@@ -5,7 +5,8 @@ export default (req, res) => {
     
     const sql =`SELECT p.*, pic.url, pic.caption
                 FROM products p
-                LEFT JOIN pictures pic ON p.id = pic.products_id`
+                LEFT JOIN pictures pic ON p.id = pic.products_id
+                WHERE p.id = ?`
     const paramsSQL = [id]
     pool.query(sql,paramsSQL,(err, result) => {
         if(err) throw err

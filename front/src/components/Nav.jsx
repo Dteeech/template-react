@@ -28,7 +28,7 @@ const Nav = (props) => {
           </li>
           <li>
             <NavLink to="/">
-              <i class="fa-light fa-house-blank"></i>
+              <i className="fa-solid fa-house"></i>
             </NavLink>
           </li>
           <li>
