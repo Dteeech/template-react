@@ -5,10 +5,11 @@ import useCart from "./Hooks/useCart.jsx"
 import { useContext, useState, useEffect, Fragment } from "react"
 
 const Cart = () => {
-    const { removeFromCart, getCart } = useCart();
+    const { removeFromCart, getCart, clearCart } = useCart();
     const [totalPrice, setTotalPrice] = useState(0);
-    const [state , dispatch] = useContext(StoreContext)
+    const [state, dispatch] = useContext(StoreContext)
     const [loading, setLoading] = useState(true)
+    const [orderAccepted, setOrderAccepted] = useState(false)
     const userId = state.user.id
 
     console.log(state)
@@ -20,7 +21,7 @@ const Cart = () => {
         });
         setTotalPrice(price);
     }, [state.cart]);
-    
+
     useEffect(() => {
         console.log(userId)
         console.log(state.cart)
@@ -34,15 +35,18 @@ const Cart = () => {
     }, [userId])
 
     const handleDelete = (productId) => {
-        
+
         console.log(userId, productId)
         removeFromCart(userId, productId)
     }
 
 
     const handleCheckout = () => {
-
+        //vider le panier
+        clearCart(userId)
         console.log("Commande acceptée !");
+        setOrderAccepted(true)
+        console.log(state.cart)
     }
 
     if (loading) {
@@ -67,6 +71,9 @@ const Cart = () => {
         </ul>
         <p>Total : {totalPrice}€</p>
         <button onClick={() => handleCheckout()}>Commander</button>
+        {orderAccepted && <p>Votre commande à bien été prise en compte par nos services</p>
+        }
+
     </div>
     )
 }

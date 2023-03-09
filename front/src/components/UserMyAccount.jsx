@@ -2,6 +2,7 @@
 import { BASE_URL } from '../tools/constante.js'
 import { useEffect, useState, Fragment, useContext } from "react"
 import UserIsLogged from "./UserIsLogged.jsx"
+import Nav from "./Nav.jsx"
 import { StoreContext } from "../tools/context.js"
 import axios from 'axios'
 import { useParams, NavLink, Navigate } from "react-router-dom"
@@ -70,29 +71,30 @@ const UserMyAccount = () => {
 
     return (
         <Fragment>
-        <form onSubmit={submit}>
-            <input type='text' name='first_name' 
-            placeholder='nom' onChange={handleChange} 
-            value={userInfos.first_name} />
-            
-            <input type='text' 
-            name='last_name'
-            placeholder='prenom' 
-            onChange={handleChange} 
-            value={userInfos.last_name} />
-            
-            <button onClick={() => deleteUser(userId)}> supprimer le compte </button>
-            <input type='submit' />
-        </form>
-                   
-                   
-                    {state.user.isLogged ?
-                (<UserIsLogged />)
+        <Nav />
+        <div className="form_container">
+            <form className="form" onSubmit={submit}>
+                <input type='text' name='first_name' 
+                placeholder='nom' onChange={handleChange} 
+                value={userInfos.first_name} />
                 
-                : (<a href="/login">Se connecter</a>)
+                <input type='text' 
+                name='last_name'
+                placeholder='prenom' 
+                onChange={handleChange} 
+                value={userInfos.last_name} />
                 
-            }
+                <button className="delete" onClick={() => deleteUser(userId)}> supprimer le compte </button>
+                <input type='submit' />
+            </form>
+            
+            {state.user.isLogged ?
+            (<UserIsLogged />)
+            
+            : (<a href="/login">Se connecter</a>)}
             <NavLink to="/"> Accueil </NavLink>
+        </div>
+        
     </Fragment>
     )
 

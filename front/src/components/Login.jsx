@@ -77,7 +77,7 @@ const Login = () => {
       state.user.isLogged ? (
         <Navigate to="/" replace={true} />
       ) : (
-        <div className="connect">
+        <div className="form_container">
           
           <form className="form" onSubmit={submit}>
             <p>Se connecter</p>
@@ -107,7 +107,7 @@ const Login = () => {
         </div>
       )
     ) : (
-      <div className="connect">
+      <div className="form_container">
         
         <form className="form" onSubmit={submit}>
           <p>Se connecter</p>

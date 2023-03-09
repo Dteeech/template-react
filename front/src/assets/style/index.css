@@ -175,7 +175,7 @@ a:hover {
 
 /******************************  PAGE SE CONNECTER / REGISTER ***********************/
 
-.connect {
+.form_container {
   background-image:url("../../assets/img/login_background.jpg");
   height:100vh;
    background-attachment: fixed;
@@ -191,7 +191,7 @@ a:hover {
   text-align: center;
 }
 
-.connect .form {
+.form_container .form {
   text-align: center;
   background-color: rgba(255, 255, 255, .3);
   padding: 3rem;
@@ -205,7 +205,7 @@ a:hover {
   backdrop-filter: blur(10px);
 }
 
-.connect .form p {
+.form_container .form p {
 
   color: white;
   font-weight: 500;
@@ -218,7 +218,7 @@ a:hover {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
 }
 
-.connect .form a {
+.form_container .form a {
 
 
   color: #ddd;
@@ -228,12 +228,12 @@ a:hover {
 
 }
 
-.connect .form a:hover {
+.form_container .form a:hover {
   color: #FF2A6D;
   text-shadow: 2px 2px 6px rgb(0, 0, 0);
 }
 
-.connect .form input {
+.form_container .form input {
   text-align: center;
   background: transparent;
   border: none;
@@ -249,11 +249,11 @@ a:hover {
   transition: all .3s;
 }
 
-.connect .form ::placeholder {
+.form_container .form ::placeholder {
   color: white;
 }
 
-.connect .form input:hover {
+.form_container .form input:hover, button .delete{
 
  box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, .2);  background: rgba(255, 255, 255, .1);
 }
@@ -261,6 +261,24 @@ input[type="submit"]{
   margin-top: 10px;
   cursor:pointer;
 }
+
+button,  .delete{
+  cursor:pointer;
+  text-align: center;
+  background: transparent;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, .3);
+  border-top: 1px solid rgba(255, 255, 255, .3);
+  margin:5px;
+  padding: 1rem;
+  width: 200px;
+  border-radius: 50px;
+  backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
+  color: white;
+  transition: all .3s;
+}
+
 /******************************  MOBILE ***********************/
 
 /* Styles spécifiques aux mobiles */

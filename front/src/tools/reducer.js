@@ -67,9 +67,12 @@ const reducer = (state, action) => {
 
         case "EMPTY_CART":
             // Suppression de tous les articles du panier
+            console.log("dans le reducer")
             return {
+                
                 ...state,
                 cart: []
+                
             };
 
 

@@ -9,7 +9,7 @@ const useCart = (product, userId) => {
     // Ajouter un produit au panier
     const addToCart = async(product, userId) => {
         try {
-            const response = await axios.post(
+            await axios.post(
                 `${BASE_URL}/cart/addToCart`, {
                     user_id: userId,
                     product_id: product.id,
@@ -30,9 +30,9 @@ const useCart = (product, userId) => {
         console.log(userId, productId)
         try {
             await axios.post(`${BASE_URL}/cart/deleteFromCart`, {
-                user_id: userId, 
+                user_id: userId,
                 product_id: productId
-    
+
             });
 
             dispatch({
@@ -60,11 +60,25 @@ const useCart = (product, userId) => {
         }
     }
 
+    const clearCart = async(userId) => {
+        try {
+            const response = await axios.post(`${BASE_URL}/cart/clearCart`, { user_id: userId })
+            console.log(response)
+            dispatch({
+                type: "EMPTY_CART"
+            })
+        }
+        catch (error) {
+            console.log("erreur de la suppression du panier")
+        }
+    }
+
     return {
 
         addToCart,
         removeFromCart,
-        getCart
+        getCart,
+        clearCart
     }
 
 }
