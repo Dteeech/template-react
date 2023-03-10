@@ -77,7 +77,7 @@ const Login = () => {
       state.user.isLogged ? (
         <Navigate to="/" replace={true} />
       ) : (
-        <div className="form_container">
+        <div className="form_container login">
           
           <form className="form" onSubmit={submit}>
             <p>Se connecter</p>
@@ -107,7 +107,7 @@ const Login = () => {
         </div>
       )
     ) : (
-      <div className="form_container">
+      <div className="form_container login">
         
         <form className="form" onSubmit={submit}>
           <p>Se connecter</p>
@@ -125,7 +125,7 @@ const Login = () => {
               onChange={handleChange}
               placeholder="password"
             />
-            <input type="submit" />
+            <input type="submit" value="Me connecter" />
             <div>
             <p>Pas encore de compte ? </p>
             <NavLink to="/register">S'enregistrer</NavLink>

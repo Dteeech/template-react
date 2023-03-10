@@ -72,7 +72,7 @@ const UserMyAccount = () => {
     return (
         <Fragment>
         <Nav />
-        <div className="form_container">
+        <div className="form_container my_account">
             <form className="form" onSubmit={submit}>
                 <input type='text' name='first_name' 
                 placeholder='nom' onChange={handleChange} 
@@ -85,14 +85,13 @@ const UserMyAccount = () => {
                 value={userInfos.last_name} />
                 
                 <button className="delete" onClick={() => deleteUser(userId)}> supprimer le compte </button>
-                <input type='submit' />
+                <input type='submit' value="Modifier" />
             </form>
             
             {state.user.isLogged ?
             (<UserIsLogged />)
             
             : (<a href="/login">Se connecter</a>)}
-            <NavLink to="/"> Accueil </NavLink>
         </div>
         
     </Fragment>

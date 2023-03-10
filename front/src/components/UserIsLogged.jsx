@@ -14,7 +14,7 @@ const UserIsLogged = () => {
     return (
         <div>
             <p> Vous êtes connecté {state.user.first_name} {state.user.last_name}</p>
-            <button onClick={logout}>Déconnexion </button>
+            <button className="logout" onClick={logout}>Déconnexion </button>
         </div>
 
     )

@@ -1,11 +1,13 @@
 import { StoreContext } from "../tools/context.js"
 import { NavLink } from "react-router-dom"
+import Nav from "./Nav.jsx"
 import { BASE_IMG } from "../tools/constante.js"
 import useCart from "./Hooks/useCart.jsx"
 import { useContext, useState, useEffect, Fragment } from "react"
 
 const Cart = () => {
     const { removeFromCart, getCart, clearCart } = useCart();
+    const { isEmpty, setIsEmpty } = useState(true)
     const [totalPrice, setTotalPrice] = useState(0);
     const [state, dispatch] = useContext(StoreContext)
     const [loading, setLoading] = useState(true)
@@ -52,30 +54,40 @@ const Cart = () => {
     if (loading) {
         return <div>Loading</div>
     }
+    if (state.cart === [] ){
+        return (
+            <div>
+                <Nav />
+                <h2>Votre panier est vide</h2>
+            </div>
+        )}
+    else {
     return (
-        <div>
-        <h1>Panier</h1>
-        <NavLink to="/">Accueil</NavLink>
-        <ul>
-            {state.cart.map((product,i) => {
-            console.log(product)
-                return (
-                    <Fragment key={`${product.id}`}>
-                        <img src={`${BASE_IMG}/${product.url}`} alt={product.name} />
-                        <li>{product.name}</li>
-                        <li>{product.price}€</li>
-                        <button onClick={() => handleDelete(product.product_id)}>Supprimer l'article</button>
-                    </Fragment>
-                )
-            })}
-        </ul>
-        <p>Total : {totalPrice}€</p>
-        <button onClick={() => handleCheckout()}>Commander</button>
-        {orderAccepted && <p>Votre commande à bien été prise en compte par nos services</p>
-        }
-
-    </div>
-    )
+        <Fragment>
+            <Nav />
+            <div className="cart">
+                <h1>Panier</h1>
+                <ul>
+                    {state.cart.map((product,i) => {
+                    console.log(product)
+                        return (
+                            <div key={`${product.id}`}>
+                                <img src={`${BASE_IMG}/${product.url}`} alt={product.name} />
+                                <li>{product.name}</li>
+                                <li>{product.price}€</li>
+                                <button onClick={() => handleDelete(product.product_id)}>Supprimer l'article</button>
+                            </div>
+                        )
+                    })}
+                </ul>
+                <div>
+                    <p>Total : {totalPrice}€</p>
+                    <button onClick={() => handleCheckout()}>Commander</button>
+                    {orderAccepted && <p>Votre commande à bien été prise en compte par nos services</p>}
+                </div>
+            </div>
+        </Fragment>
+    )}
 }
 
 export default Cart;

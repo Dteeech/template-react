@@ -59,9 +59,11 @@ const ProductsFilter = () => {
               <div className="productCaption">
                 <li>{product.name}</li>
                 <li>Prix : <strong>{product.price}€</strong></li>
-                <button onClick={()=> handleAddToCart(product,1)}>Ajouter au panier</button>
+                
               </div>  
+              <button onClick={()=> handleAddToCart(product,1)}>Ajouter au panier</button>
             </div>
+            
           )
         }
         )}
