@@ -12,8 +12,10 @@ const reducer = (state, action) => {
         case 'LOGOUT':
             return {
                 ...state,
-                user: {},
-                isLogged: false
+                user: {
+                    isLogged: false
+                },
+                
             }
         case "ALL_PRODUCTS":
             return {

@@ -10,7 +10,7 @@ import AddProduct from "../components/admin/AddProduct"
 import ListProducts from "../components/admin/ListProducts"
 import EditProduct from "../components/admin/EditProduct"
 import ProductsFilter from "../components/ProductsFilter"
-import AdminSideBar from "../components/admin/AdminSideBar"
+import AdminPanel from "../components/admin/AdminPanel"
 import Cart from "../components/Cart"
 
 
@@ -25,9 +25,9 @@ const routes = [
     { path: "/admin/addProduct", component: <AddProduct />, auth: "admin" },
     { path: "/admin/listProducts", component: <ListProducts />, auth: "admin" },
     { path: "/admin/products/edit/:productId", component: <EditProduct />, auth: "admin" },
-    { path: "/admin/AdminSideBar", component: <AdminSideBar />, auth: "admin" },
+    { path: "/admin/AdminPanel", component: <AdminPanel />, auth: "admin" },
     { path: "/Cart", component: <Cart /> },
-    { path: "/admin/ProductsFilter", component: <ProductsFilter />},
+    { path: "/ProductsFilter", component: <ProductsFilter />},
     { path: "*", component: <Error404 /> }
 ]
 

@@ -43,10 +43,13 @@ const Nav = (props) => {
           }
           </li>
         </ul>
-      </nav>
-      {state.user.role_id === 1 &&
-            <AdminSideBar />
+        {state.user.role_id === 1 &&
+          <NavLink className="admin_path" to="/admin/AdminPanel">
+              ADMIN
+            </NavLink>
           }
+      </nav>
+      
     </div>
   );
 };

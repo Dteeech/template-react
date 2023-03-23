@@ -71,30 +71,30 @@ const UserMyAccount = () => {
 
     return (
         <Fragment>
-        <Nav />
-        <div className="form_container my_account">
-            <form className="form" onSubmit={submit}>
-                <input type='text' name='first_name' 
-                placeholder='nom' onChange={handleChange} 
-                value={userInfos.first_name} />
+            <Nav />
+            <div className="form_container my_account">
+                <form className="form" onSubmit={submit}>
+                    <input type='text' name='first_name' 
+                    placeholder='nom' onChange={handleChange} 
+                    value={userInfos.first_name} />
+                    
+                    <input type='text' 
+                    name='last_name'
+                    placeholder='prenom' 
+                    onChange={handleChange} 
+                    value={userInfos.last_name} />
+                    
+                    <button className="delete" onClick={() => deleteUser(userId)}> supprimer le compte </button>
+                    <input type='submit' value="Modifier" />
+                </form>
                 
-                <input type='text' 
-                name='last_name'
-                placeholder='prenom' 
-                onChange={handleChange} 
-                value={userInfos.last_name} />
+                {state.user.isLogged ?
+                (<UserIsLogged />)
                 
-                <button className="delete" onClick={() => deleteUser(userId)}> supprimer le compte </button>
-                <input type='submit' value="Modifier" />
-            </form>
-            
-            {state.user.isLogged ?
-            (<UserIsLogged />)
-            
-            : (<a href="/login">Se connecter</a>)}
-        </div>
+                : (<a href="/login">Se connecter</a>)}
+            </div>
         
-    </Fragment>
+        </Fragment>
     )
 
 }

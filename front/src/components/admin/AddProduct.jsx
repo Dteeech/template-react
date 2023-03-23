@@ -63,7 +63,6 @@ const AddProduct = () => {
     // Retourne le formulaire avec des étiquettes et des champs pour chaque donnée de produit et un bouton de soumission
     return (
         <Fragment>
-            <Nav />
             <form onSubmit={submit} encType="multipart/form-data">
                 Type de produit:
                 <label>
@@ -95,7 +94,7 @@ const AddProduct = () => {
                             value={productInfos.price}/>
                         </label>
                         <label>
-                            Categorie
+                            Catégorie :
                         <select name="category_id" 
                         onChange ={handleChange} 
                         value={productInfos.category_id}>
@@ -125,6 +124,7 @@ const AddProduct = () => {
                       </label>
                       
                       <label>
+                      Catégorie :
                         <select name="category_id" 
                         onChange ={handleChange} 
                         value={productInfos.category_id}>

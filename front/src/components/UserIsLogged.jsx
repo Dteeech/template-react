@@ -1,15 +1,18 @@
-import React from "react"
+import { useContext } from "react"
 import { StoreContext } from "../tools/context.js"
 import axios from "axios"
 
 const UserIsLogged = () => {
 
-    const [state, dispatch] = React.useContext(StoreContext)
+    const [state, dispatch] = useContext(StoreContext)
 
     const logout = () => {
-        localStorage.removeItem('jwtToken')
+
+        console.log(state.user.isLogged)
+        localStorage.removeItem('jwtToken') //suppression du token
         dispatch({ type: "LOGOUT" })
         delete axios.defaults.header.common['Authorization']
+
     }
     return (
         <div>

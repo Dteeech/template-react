@@ -73,8 +73,8 @@ const Login = () => {
     return (
   <Fragment>
   <Nav />
-    {state.user.isLogged ? (
-      state.user.isLogged ? (
+    {state.user.isLogged ? ( //verification user connecté si oui
+      state.user.isLogged ? ( //si user connecté on le redirige vers l'accueil
         <Navigate to="/" replace={true} />
       ) : (
         <div className="form_container login">
@@ -106,7 +106,7 @@ const Login = () => {
           
         </div>
       )
-    ) : (
+    ) : ( // si non 
       <div className="form_container login">
         
         <form className="form" onSubmit={submit}>

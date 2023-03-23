@@ -1,11 +1,15 @@
 import { NavLink } from "react-router-dom";
 import {useEffect, useContext} from 'react'
+import ListUsers from "./ListUsers.jsx"
+import AddProduct from "./AddProduct.jsx"
+import ListProducts from "./ListProducts.jsx"
 import axios from 'axios'
 /*
 import { StoreContext} from '../../tools/context.js'*/
 
 const AdminSideBar = (props) => {
 /*const [state, dispatch] = useContext(StoreContext)*/
+  const { onNavigation } = props 
   
   useEffect(() => {
     if(!axios.defaults.headers.common['Authorization']){
@@ -16,23 +20,35 @@ const AdminSideBar = (props) => {
     }
   },[])
   
+  const handleListUsers = () => {
+    onNavigation(<ListUsers />)
+  }
+  
+  const handleAddProduct =()=> {
+    onNavigation(<AddProduct />)
+  }
+  
+  const handleListProducts =()=> {
+    onNavigation(<ListProducts />)
+  }
+  
   return (
-    <nav className ="nav_admin">
+    <nav className="admin_side_bar">
       <ul>
         <li>
-          <NavLink to="/admin/listUsers">
-            Users list
-          </NavLink>
+        <button onClick={handleListUsers}>
+          Liste des utilisateurs
+        </button>
         </li>
         <li>
-          <NavLink to="/admin/addProduct">
-            Ajout d'un produit
-          </NavLink>
+        <button onClick={handleAddProduct}>
+          Ajouter un produit
+        </button>
         </li>
         <li>
-          <NavLink to="/admin/listProducts">
-            Liste des produits
-          </NavLink>
+        <button onClick={handleListProducts}>
+          Liste des produits
+        </button>
         </li>
       </ul>
     </nav>

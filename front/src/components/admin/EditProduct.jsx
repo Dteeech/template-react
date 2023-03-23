@@ -82,7 +82,7 @@ e.preventDefault()
         return <div>Loading...</div>
     }
     return (
-        <Fragment>
+        <div className="edit_products">
             
                 <img src={`${BASE_IMG}/${product.url}`} alt="product image"/>
                 <form onSubmit={submit}>
@@ -168,7 +168,7 @@ e.preventDefault()
                 </label>
                 <button type="submit">envoyer la photo </button>
             </form>
-        </Fragment>
+        </div>
     )
 }
 

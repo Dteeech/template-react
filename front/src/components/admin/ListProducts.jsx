@@ -2,6 +2,7 @@ import axios from "axios"
 import { BASE_URL, BASE_IMG } from '../../tools/constante.js'
 import { useEffect, useState } from "react"
 import { NavLink } from 'react-router-dom'
+import AdminSideBar from "./AdminSideBar"
 
 const ListProducts = () => {
     const [productsList, setProductsList] = useState([])
@@ -29,14 +30,11 @@ const ListProducts = () => {
 
     
     return(
-        <div>
-        
-            
-            
+        <div className="list_products">
             {productsList.map((product,i) => {
             return(
             
-            <div key={i}>
+            <div className="productCard" key={i}>
             
                 <ul>
                     <li>Name: {product.name} </li>
@@ -44,10 +42,13 @@ const ListProducts = () => {
                     <li>Price: {product.price}</li>
                     <li>Categorie ID: {product.category_id}</li>
                 </ul>
-                <img src={`${BASE_IMG}/${product.url}`} alt="Product image" />
-                <button onClick={() => deleteProduct(product.id, product.url)}>X</button>
+                <img className="productImage"src={`${BASE_IMG}/${product.url}`} alt="Product image" />
+                <div className="productCaption">
+                    <button onClick={() => deleteProduct(product.id, product.url)}>X</button>
                     <NavLink to={`/admin/products/edit/${product.id}`}><button>Modifier</button>
                     </NavLink>
+                </div>
+                
             </div>
             )
         })}

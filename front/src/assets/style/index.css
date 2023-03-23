@@ -1,336 +1,408 @@
 /* Appliquer les styles au corps de la page */
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #01012B;
-  color: #D1F7FF;
 
-}
-
-/* Appliquer les styles à tous les éléments de la page */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-/********************* HOME PAGE*****************/
-
-/* Appliquer les styles à la classe "background_image" */
-
-.background_image {
-  background-image: url("../../assets/img/lorenzo-herrera-p0j-mE6mGo4-unsplash.jpg");
-  text-align: center;
-  width: 100%;
-  height: 100Vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #01012B;
-  background-position: center;
-}
-
-.blur {
-  backdrop-filter: blur(10px);
-  display: block;
-  text-align: center;
-  margin: auto;
-  padding: 10px, 0, 15px, 0;
-  width: 48%;
-}
-
-/* Appliquer les styles à la classe "main" */
-
-.main {
-
-  position: relative;
-  z-index: 1;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100vh;
-  text-align: center;
-  /* Utiliser la variable de couleur définie dans settings.scss */
-}
-
-/********************* NAVBAR*****************/
-
-.nav {
-  background-color: rgba(255, 255, 255, .2);
-}
-
-.nav ul {
-  display: flex;
-  justify-content: space-around;
-  margin: 20px;
-  list-style: none;
-  font-size: 2rem;
-}
-
-/* Appliquer les styles aux liens dans les éléments de la liste */
-
-a {
-  text-decoration: none;
-  color: #D1F7FF;
-  /* Utiliser la variable de couleur définie dans settings.scss */
-  transition-duration: 1s;
-  margin: 50px;
-
-}
-
-/* Appliquer les styles aux liens survolés */
-
-a:hover {
-  color: #FF2A6D;
-  /* Utiliser la variable de couleur définie dans settings.scss */
-  font-size: 1.5rem;
-}
-
-/*********************END NAVBAR*****************/
-
-/* Appliquer les styles au titre de niveau 1 */
-
-.mainHome h1 {
-  font-family: 'DePixel', sans-serif;
-  margin: auto;
-  margin-top: 40px;
-  padding: 0;
-  text-align: center;
-  color: #D1F7FF;
-  font-size: 5vw;
-  line-height: 5vw;
-  text-shadow: 0 0 3vw #2356FF;
-  animation: flux 2s linear infinite;
-  -moz-animation: flux 2s linear infinite;
-  -webkit-animation: flux 2s linear infinite;
-  -o-animation: flux 2s linear infinite;
-
-}
-
-@keyframes flux {
-  0%,
-  100% {
-    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
-    color: #28D7FE;
+    body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #01012B;
+    color: #D1F7FF;
+  
   }
-  50% {
-    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
-    color: #146C80;
+  
+  /* Appliquer les styles à tous les éléments de la page */
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
-}
+  
+  /********************* HOME PAGE*****************/
+  
+  /* Appliquer les styles à la classe "background_image" */
+  
+  .background_image {
+    background-image: url("../../assets/img/lorenzo-herrera-p0j-mE6mGo4-unsplash.jpg");
+    text-align: center;
+    width: 100%;
+    height: 100Vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #01012B;
+    background-position: center;
+  }
+  
+  .blur {
+    backdrop-filter: blur(1px);
+    display: block;
+    text-align: center;
+    margin: auto;
+    padding: 10px, 0, 15px, 0;
+    width: 48%;
+  }
+  
+  /* Appliquer les styles à la classe "main" */
+  
+  .main {
+  
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    /* Utiliser la variable de couleur définie dans settings.scss */
+  }
+  
+  /********************* NAVBAR*****************/
+  
+  .nav {
+    background-color: rgba(255, 255, 255, .2);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  
+  .nav ul {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+    list-style: none;
+    font-size: 2rem;
+  }
+  
+  /* Appliquer les styles aux liens dans les éléments de la liste */
+  
+  a {
+    text-decoration: none;
+    color: #D1F7FF;
+    /* Utiliser la variable de couleur définie dans settings.scss */
+    transition-duration: 1s;
+    margin: 50px;
+  
+  }
+  
+  .admin_path { /*Petite extension de nav pour l'admin*/
+    text-align: center;
+    font-size:2rem;
+    border: 1px solid #D1F7FF;
+    border-radius:10px;
+    padding: 10px;
+    margin:10px;
+  }
+  
+  .admin_path:hover{
+    border:2px solid #FF2A6D;
+    color: #FF2A6D;
+  }
+  /*********************ADMIN NAVBAR*****************/
+  
 
-.mainHome .space {
-  height: 80vh;
-}
+  
+  /*********************ADMIN NAVBAR*****************/
+  /*********************ADMIN PANEL*****************/
+  .admin_panel {
+    display: flex;
+    flex-direction: column;
+  }
+  .admin_side_bar ul {
+    display: flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    text-align: center;
+    justify-content: center;
+    
+  }
+  /*********************ADMIN ajout produit*****************/
+  
+  
+  /*********************ADMIN PANEL*****************/
+  /* Appliquer les styles au titre de niveau 1 */
+  
+  .mainHome h1 {
+    font-family: 'DePixel', sans-serif;
+    margin: auto;
+    margin-top: 40px;
+    padding: 0;
+    text-align: center;
+    color: #D1F7FF;
+    font-size: 5vw;
+    line-height: 5vw;
+    text-shadow: 0 0 3vw #2356FF;
+    animation: flux 2s linear infinite;
+    -moz-animation: flux 2s linear infinite;
+    -webkit-animation: flux 2s linear infinite;
+    -o-animation: flux 2s linear infinite;
+  
+  }
+  
+  @keyframes flux {
+    0%,
+    100% {
+      text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+      color: #28D7FE;
+    }
+    50% {
+      text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+      color: #146C80;
+    }
+  }
+  
+  .mainHome .space {
+    height: 80vh;
+  }
+  
+  .fa-gamepad {
+    margin-top: 100px;
+    font-size: 2rem;
+  }
+  
+  .fa-gamepad::after {
+    content: " Magasin ";
+  }
+  
+  /******************************  PAGE MAGASIN ***********************/
+  
+  .shopBackground {
+    min-height: 100vh;
+    background-image: url("../../assets/img/fond_bleu.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #01012B;
+    background-position: center;
+    text-align: center;
+    margin:0;
+  }
+  
+  .productCard {
+    text-align: center;
+    width:400px;
+    background: rgba(150, 150, 150, .4);
+    border-radius: 50px;
+    margin: 5%;
+    backdrop-filter: blur(10px);
+    padding: 10px;
+  }
+  
+  .productImage {
+    border: solid 2px #D1F7FF;
+    margin:5%;
+    width:40%;
+    height: auto;
+  }
+  
+  .productCaption {
+    margin: 5%;
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  .shopBackground ul {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  
+  .list_products{
+     display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  
+  .shopBackground select {
+    display:flex;
+    flex-direction:column;
+    margin:auto;
+  }
+  
 
-.fa-gamepad {
-  margin-top: 100px;
-  font-size: 2rem;
-}
+  /******************************  PAGE SE CONNECTER / REGISTER ***********************/
+  
+  .form_container {
+    background-image: url("../../assets/img/fond_jaune.jpg");
+    height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #01012B;
+    background-position: 50% 45%;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .form_container .form {
+    text-align: center;
+    background-color: rgba(255, 255, 255, .3);
+    padding: 3rem;
+    padding-bottom: 10px;
+    height: 360px;
+    max-width: 450px;
+    border-radius: 20px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(10px);
+  }
+  
+  .form_container .form p {
+  
+    color: white;
+    font-weight: 500;
+  
+    opacity: .7;
+  
+    font-size: 1.4rem;
+  
+  
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+  }
+  
+  .form_container .form a {
+  
+  
+    color: #ddd;
+    text-decoration: none;
+    font-size: 12px;
+    transition-duration: 0.3s;
+  
+  }
+  
+  .form_container .form a:hover {
+    color: #FF2A6D;
+    text-shadow: 2px 2px 6px rgb(0, 0, 0);
+  }
+  
+  .form_container .form input, .shopBackground select {
+    text-align: center;
+    background: transparent;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    margin: auto;
+    padding: 1rem;
+    width: 200px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
+    color: white;
+    transition: all .3s;
+  }
+  
+  .form_container .form ::placeholder {
+    color: white;
+  }
+  
+  .form_container .form input:hover,
+  button:hover,
+  .delete:hover,
+  .logout:hover {
+  
+    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, .2);
+    background: rgba(255, 255, 255, .1);
+  }
+  
+  .delete:hover {
+    background: red;
+  }
+  
+  input[type="submit"] {
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  button,
+  .delete {
+    cursor: pointer;
+    text-align: center;
+    background: transparent;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    margin: 5px;
+    padding: 1rem;
+    width: 200px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
+    color: white;
+    transition: all .3s;
+  }
+  
+  /******************************  CART ***********************/
+  
+  .cart {
+    background-image: url("../../assets/img/fond_orange.jpg");
+    min-height: 100vh;
+    background-position: 50% 45%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .cart div {
+    background: rgba(150, 150, 150, .4);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    margin: 50px;
+  }
+  
+  .cart div>* {
+    margin: 40px;
+  }
 
-.fa-gamepad::after {
-  content: " Magasin ";
-}
 
-/******************************  PAGE MAGASIN ***********************/
+/******************************  TABLETTE ***********************/
 
-.shopBackground {
-  min-height: 100vh;
-  background-image: url("../../assets/img/magasin_background.jpg");
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #01012B;
-  background-position: center;
-  text-align: center;
-}
+/* Styles spécifiques aux tablettes et au-delà */
 
-.productCard {
-  text-align: center;
-  background: rgba(150, 150, 150, .4);
-  border-radius: 50px;
-  margin: 10%;
-  backdrop-filter: blur(10px);
-  padding: 10px;
-}
-
-.productImage {
-  border: solid 2px #D1F7FF;
-  margin:5%;
-  max-width: 350px;
-  height: auto;
-}
-
-.productCaption {
-  margin: 5%;
-  text-align: center;
-  font-size: 2rem;
-}
-
-/******************************  PAGE SE CONNECTER / REGISTER ***********************/
-
-.form_container {
-  background-image: url("../../assets/img/magasin_background.jpg");
-  height: 100vh;
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #01012B;
-  background-position: 50% 45%;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.form_container .form {
-  text-align: center;
-  background-color: rgba(255, 255, 255, .3);
-  padding: 3rem;
-  padding-bottom: 10px;
-  height: 360px;
-  max-width: 450px;
-  border-radius: 20px;
-  border-left: 1px solid rgba(255, 255, 255, .3);
-  border-top: 1px solid rgba(255, 255, 255, .3);
-  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
-  backdrop-filter: blur(10px);
-}
-
-.form_container .form p {
-
-  color: white;
-  font-weight: 500;
-
-  opacity: .7;
-
-  font-size: 1.4rem;
-
-
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
-}
-
-.form_container .form a {
-
-
-  color: #ddd;
-  text-decoration: none;
-  font-size: 12px;
-  transition-duration: 0.3s;
-
-}
-
-.form_container .form a:hover {
-  color: #FF2A6D;
-  text-shadow: 2px 2px 6px rgb(0, 0, 0);
-}
-
-.form_container .form input {
-  text-align: center;
-  background: transparent;
-  border: none;
-  border-left: 1px solid rgba(255, 255, 255, .3);
-  border-top: 1px solid rgba(255, 255, 255, .3);
-  margin: 5px;
-  padding: 1rem;
-  width: 200px;
-  border-radius: 50px;
-  backdrop-filter: blur(5px);
-  box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
-  color: white;
-  transition: all .3s;
-}
-
-.form_container .form ::placeholder {
-  color: white;
-}
-
-.form_container .form input:hover,
-button:hover,
-.delete:hover,
-.logout:hover {
-
-  box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, .2);
-  background: rgba(255, 255, 255, .1);
-}
-
-.delete:hover {
-  background: red;
-}
-
-input[type="submit"] {
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-button,
-.delete {
-  cursor: pointer;
-  text-align: center;
-  background: transparent;
-  border: none;
-  border-left: 1px solid rgba(255, 255, 255, .3);
-  border-top: 1px solid rgba(255, 255, 255, .3);
-  margin: 5px;
-  padding: 1rem;
-  width: 200px;
-  border-radius: 50px;
-  backdrop-filter: blur(5px);
-  box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
-  color: white;
-  transition: all .3s;
-}
-
-/******************************  CART ***********************/
-
-.cart {
-  background-image: url("../../assets/img/magasin_background.jpg");
-  min-height: 100vh;
-  background-position: 50% 45%;
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  padding: 50px;
-}
-
-.cart div {
-  background: rgba(150, 150, 150, .4);
-  backdrop-filter: blur(10px);
-  border-radius: 50px;
-  margin: 50px;
-}
-
-.cart div>* {
-  margin: 40px;
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px){
+  /* Appliquer les styles à la liste dans la classe "nav" */
+  .nav ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  /* Appliquer les styles aux éléments de la liste */
+  .nav ul li {
+    list-style: none;
+    margin: 0;
+  }
+  
+  .productImage {
+    width:50%;
+  }
+  
 }
 
 /******************************  MOBILE ***********************/
 
 /* Styles spécifiques aux mobiles */
-
-@media only screen and (max-width: 768px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
 
   /* Appliquer les styles aux éléments de la liste */
   .nav ul {
     margin: 0;
     display: flex;
-    flex-direction: column;
   }
   /* Appliquer les styles aux éléments de la liste */
   .nav ul li {
@@ -342,23 +414,10 @@ button,
     font-size: 1.5rem;
     font-family: 'DePixel', sans-serif;
   }
-}
-
-/******************************  TABLETTE ***********************/
-
-/* Styles spécifiques aux tablettes et au-delà */
-
-@media only screen and (min-width: 769px) {
-  /* Appliquer les styles à la liste dans la classe "nav" */
-  .nav ul {
-    display: flex;
-    justify-content: space-between;
-    margin: auto;
-    padding: 10px;
-  }
-  /* Appliquer les styles aux éléments de la liste */
-  .nav ul li {
-    list-style: none;
-    margin: 0;
+  
+  
+  .productImage {
+    width:60%;
   }
 }
+
