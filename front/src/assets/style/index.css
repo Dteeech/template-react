@@ -190,7 +190,7 @@
     background: rgba(150, 150, 150, .4);
     border-radius: 50px;
     margin: 5%;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(3px);
     padding: 10px;
   }
   
@@ -228,8 +228,8 @@
 
   /******************************  PAGE SE CONNECTER / REGISTER ***********************/
   
-  .form_container {
-    background-image: url("../../assets/img/fond_jaune.jpg");
+  .form_container  {
+  
     height: 100vh;
     background-attachment: fixed;
     background-size: cover;
@@ -243,7 +243,16 @@
     flex-direction: column;
     text-align: center;
   }
-  
+   .my_account {
+    background-image: url("../../assets/img/fond_jaune.jpg");
+  }
+   .register {
+    background-image: url("../../assets/img/fond_rouge.jpg");
+  }
+  .login {
+    background-image: url("../../assets/img/login.jpg");
+
+  }
   .form_container .form {
     text-align: center;
     background-color: rgba(255, 255, 255, .3);
@@ -293,6 +302,8 @@
     border-left: 1px solid rgba(255, 255, 255, .3);
     border-top: 1px solid rgba(255, 255, 255, .3);
     margin: auto;
+    margin-top:5px;
+    margin-bottom:5px;
     padding: 1rem;
     width: 200px;
     border-radius: 50px;
@@ -308,7 +319,6 @@
   
   .form_container .form input:hover,
   button:hover,
-  .delete:hover,
   .logout:hover {
   
     box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, .2);
@@ -319,10 +329,6 @@
     background: red;
   }
   
-  input[type="submit"] {
-    margin-top: 10px;
-    cursor: pointer;
-  }
   
   button,
   .delete {
@@ -369,6 +375,89 @@
   .cart div>* {
     margin: 40px;
   }
+  
+/************MODAL**********/
+.modalBackground {
+  width: 100vw;
+  height: 200vh;
+  background-color: rgba(200, 200, 200, .1);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+  width: 500px;
+  height: 500px;
+  border-radius: 12px;
+  background-color: #D1F7FF;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.modalContainer .modalTitle {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+  color: #05D9E8;
+}
+
+.titleCloseBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.titleCloseBtn button {
+  background-color: transparent;
+  color:#FF2A6D;
+  width:15%;
+  border: none;
+  font-size: 20px;
+  font-weight:bold;
+  cursor: pointer;
+}
+
+.modalBody {
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.modalFooter {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalFooter button {
+  width: 150px;
+  height: 45px;
+  margin: 10px;
+  border: none;
+  background-color: #05D9E8;
+  color: #D1F7FF;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modalFooter button:hover {
+  background:#D1F7FF;
+  color: #05D9E8;
+}
+
+#cancelBtn {
+  background-color: crimson;
+}
+
+/************MODAL**********/
 
 
 /******************************  TABLETTE ***********************/

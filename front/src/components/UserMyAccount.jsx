@@ -1,15 +1,17 @@
 // 
 import { BASE_URL } from '../tools/constante.js'
 import { useEffect, useState, Fragment, useContext } from "react"
-import UserIsLogged from "./UserIsLogged.jsx"
-import Nav from "./Nav.jsx"
 import { StoreContext } from "../tools/context.js"
+import UserIsLogged from "./UserIsLogged.jsx"
+import ModalConfirmDelete from "./ModalConfirmDelete.jsx"
+import Nav from "./Nav.jsx"
 import axios from 'axios'
 import { useParams, NavLink, Navigate } from "react-router-dom"
 
 
 const UserMyAccount = () => {
     const [state, dispatch] = useContext(StoreContext)
+    const [openModal, setOpenModal] = useState(false)
     const [userInfos, setUserInfos] = useState('')
     const { userId } = useParams()
     const [isLoading, setIsLoading] = useState(true)
@@ -33,9 +35,8 @@ const UserMyAccount = () => {
 
 
 
-    const submit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(userInfos)
         axios.post(`${BASE_URL}/editUserById`, {
                 id: userInfos.id,
                 last_name: userInfos.last_name,
@@ -50,20 +51,7 @@ const UserMyAccount = () => {
             })
     }
 
-    const deleteUser = (id) => {
-        axios.post(`${BASE_URL}/deleteUserId`, { id })
-
-            .catch(err => console.log(err))
-            .then(res => {
-                console.log(res)
-                localStorage.removeItem('jwtToken')//suppression du token
-                dispatch({ type: "LOGOUT" })//envoi au reducer
-                delete axios.defaults.header.common['Authorization']
-            })
-
-
-    }
-
+   
 
     if (isLoading) {
         return <div>Loading...</div>
@@ -73,7 +61,7 @@ const UserMyAccount = () => {
         <Fragment>
             <Nav />
             <div className="form_container my_account">
-                <form className="form" onSubmit={submit}>
+                <form className="form" onSubmit={handleSubmit}>
                     <input type='text' name='first_name' 
                     placeholder='nom' onChange={handleChange} 
                     value={userInfos.first_name} />
@@ -84,16 +72,20 @@ const UserMyAccount = () => {
                     onChange={handleChange} 
                     value={userInfos.last_name} />
                     
-                    <button className="delete" onClick={() => deleteUser(userId)}> supprimer le compte </button>
-                    <input type='submit' value="Modifier" />
+                    <button type="button"className="delete" onClick={() => setOpenModal(true)}> supprimer le compte </button>
+                    <button onClick={() => handleSubmit()}>Modifier</button>
                 </form>
+                
+                
                 
                 {state.user.isLogged ?
                 (<UserIsLogged />)
                 
                 : (<a href="/login">Se connecter</a>)}
+                
+                {openModal && <ModalConfirmDelete closeModal={setOpenModal} userId={userId}/>}
             </div>
-        
+            
         </Fragment>
     )
 

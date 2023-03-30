@@ -17,7 +17,7 @@ const Home = () => {
                     
                     </div>
                     <div>
-                        <NavLink to="/admin/ProductsFilter">
+                        <NavLink to="/ProductsFilter">
                         <i className="fa-solid fa-gamepad">
                         </i></NavLink>
                     </div>
