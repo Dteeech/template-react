@@ -1,7 +1,4 @@
 import AdminSideBar from "./AdminSideBar"
-import Nav from "../Nav.jsx"
-import {NavLink} from "react-router-dom"
-import Fragment from "react"
 import ListUsers from "./ListUsers.jsx"
 
 import { useState }from 'react'
@@ -15,7 +12,6 @@ const AdminPanel = () => {
     
     return (
         <div className="admin_panel">
-        <Nav />
             <AdminSideBar onNavigation={handleNavigation}/>
             <div>
                 {selectedComponent}

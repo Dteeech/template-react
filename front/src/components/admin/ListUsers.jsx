@@ -20,10 +20,10 @@ const ListUsers = () => {
     }
     
     return(
-        <div>
+        <div className="list_user">
             {usersList.map((user,i) => {
                 return(
-                    <ul key={i}>
+                    <ul className="user" key={i}>
                         <li>Nom:{user.last_name}</li>
                         <li>Prenom:{user.first_name}</li>
                         <li>Email:{user.email}</li>

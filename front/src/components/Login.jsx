@@ -1,13 +1,10 @@
 import axios from "axios"
-import { useState } from "react"
 import { BASE_URL } from "../tools/constante.js"
-import { Fragment } from "react"
+import { Fragment, useContext, useState } from "react"
 import { NavLink } from "react-router-dom"
 import { lengthLimit, checkVide } from "../tools/maxLength.js"
 import { StoreContext } from "../tools/context.js"
-import { useContext } from "react"
 import { Navigate } from "react-router-dom"
-import Nav from "./Nav"
 
 const Login = () => {
     // Déclaration d'un objet "initialState" pour stocker les valeurs par défaut des champs "email" et "password"
@@ -72,7 +69,6 @@ const Login = () => {
     // et la soumission du formulaire déclenchée par la fonction "submit"
     return (
   <Fragment>
-  <Nav />
     {state.user.isLogged ? ( //verification user connecté si oui
       state.user.isLogged ? ( //si user connecté on le redirige vers l'accueil
         <Navigate to="/" replace={true} />

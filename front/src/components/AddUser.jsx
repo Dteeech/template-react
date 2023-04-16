@@ -1,5 +1,4 @@
 import axios from "axios"
-import Nav from "./Nav.jsx"
 import { BASE_URL } from '../tools/constante.js'
 import { useState, Fragment } from "react"
 import { Navigate } from 'react-router-dom'
@@ -57,7 +56,6 @@ const AddUser = () => {
     return (
 
         <Fragment>
-        <Nav />
             { isRegistered === false ?
             
                  (

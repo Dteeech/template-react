@@ -2,7 +2,6 @@ import axios from "axios"
 import { BASE_URL, BASE_IMG } from '../../tools/constante.js'
 import { useEffect, useState } from "react"
 import { NavLink } from 'react-router-dom'
-import AdminSideBar from "./AdminSideBar"
 
 const ListProducts = () => {
     const [productsList, setProductsList] = useState([])

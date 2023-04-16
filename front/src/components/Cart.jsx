@@ -67,22 +67,22 @@ const Cart = () => {
             <Nav />
             <div className="cart">
                 <h1>Panier</h1>
-                <ul>
-                    {state.cart.map((product,i) => {
-                    console.log(product)
-                        return (
-                            <div key={`${product.id}`}>
-                                <img src={`${BASE_IMG}/${product.url}`} alt={product.name} />
-                                <li>{product.name}</li>
-                                <li>{product.price}€</li>
-                                <button onClick={() => handleDelete(product.product_id)}>Supprimer l'article</button>
-                            </div>
-                        )
-                    })}
-                </ul>
+                    <ul>
+                        {state.cart.map((product,i) => {
+                        console.log(product)
+                            return (
+                                <div  className="productCard" key={`${product.id}`}>
+                                    <img className="productImage" src={`${BASE_IMG}/${product.url}`} alt={product.name} />
+                                    <li>{product.name}</li>
+                                    <li>{product.price}€</li>
+                                    <button onClick={() => handleDelete(product.product_id)}>Supprimer l'article</button>
+                                </div>
+                            )
+                        })}
+                    </ul>
                 <div>
                     <p>Total : {totalPrice}€</p>
-                    <button onClick={() => handleCheckout()}>Commander</button>
+                    <button className="productCaption" onClick={() => handleCheckout()}>Commander</button>
                     {orderAccepted && <p>Votre commande à bien été prise en compte par nos services</p>}
                 </div>
             </div>

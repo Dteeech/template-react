@@ -18,7 +18,7 @@ const routes = [
     { path: "/", component: <Home /> },
     { path: "/login", component: <Login /> },
     { path: "/register", component: <AddUser /> },
-    { path: "/nav", component: <Nav />, auth: "user" },
+    { path: "/nav", component: <Nav />},
     { path: "/MyAccount/:userId", component: <UserMyAccount />, auth: "user" },
     { path: "/admin/listUsers", component: <ListUsers />, auth: "admin" },
     { path: "/admin/users/edit/:userId", component: <EditUsers />, auth: "admin" },

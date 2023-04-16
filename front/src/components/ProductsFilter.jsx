@@ -1,19 +1,24 @@
 import { Fragment, useState, useEffect, useContext } from "react";
 import { BASE_URL, BASE_IMG } from "../tools/constante.js"
 import { StoreContext } from "../tools/context.js"
-import Nav from "./Nav"
 import useCart from "./Hooks/useCart.jsx"
 import axios from "axios";
 
 const ProductsFilter = () => {
+  
   const { addToCart } = useCart()
   const [displayedProducts, setDisplayedProducts] = useState({consoles:null,
     jeux: null
   });
+  
   const [type, setType] = useState(undefined); // "consoles" ou "jeux"
+  
   const [state, dispatch] = useContext(StoreContext)
+  
   const user_id = state.user.id
+  
 
+  
   useEffect(() => {
     axios.get(`${BASE_URL}/admin/allProducts`)
     .then((response) => {
@@ -41,7 +46,6 @@ const ProductsFilter = () => {
 
   return (
     <div className="shopBackground">
-    <Nav />
       <h1>Produits</h1>
       <div>
         <label htmlFor="type">Sélectionner Jeux ou consoles :</label>

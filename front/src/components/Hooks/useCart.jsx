@@ -16,7 +16,6 @@ const useCart = (product, userId) => {
 
                 })
 
-
             dispatch({
                 type: "ADD_TO_CART",
                 payload: product,
