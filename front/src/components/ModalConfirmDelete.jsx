@@ -3,8 +3,6 @@ import axios from "axios"
 import { BASE_URL } from '../tools/constante.js'
 import { StoreContext } from "../tools/context.js"
 
-console.log('Dans la modale')
-
 
 const ModalConfirmDelete = ({ closeModal, userId }) => {
     
@@ -20,7 +18,6 @@ const [state, dispatch] = React.useContext(StoreContext)
                 dispatch({ type: "LOGOUT" })//envoi au reducer
                 delete axios.defaults.header.common['Authorization']
             })
-
 
     }
 

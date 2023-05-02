@@ -43,8 +43,7 @@ const Login = () => {
         axios.post(`${BASE_URL}/login`, { password: info.password, email: info.email })
 
             .then(res => {
-
-
+              
                 setMessErr(res.data.response)
                 if (res.data.response.response) {
                     console.log(res.data.response.userData)

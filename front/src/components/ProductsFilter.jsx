@@ -59,7 +59,7 @@ const ProductsFilter = () => {
         {type && displayedProducts[type].map((product,i) => { //valeur de type a undefined et affichage quand le select est effectif
           return(
             <div className="productCard" key={`${product.id}-${type}`}>
-              <img className="productImage" src={`${BASE_IMG}/${product.url}`}/>
+              <img className="productImage" src={`${BASE_IMG}/${product.url}`} alt="photo de l'article"/>
               <div className="productCaption">
                 <li>{product.name}</li>
                 <li>Prix : <strong>{product.price}€</strong></li>

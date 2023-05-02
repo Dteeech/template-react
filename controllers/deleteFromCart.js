@@ -3,9 +3,9 @@ import { asyncQuery } from "../config/database.js"
 export default async(req, res) => {
     const { user_id, product_id } = req.body
     const sql = `DELETE FROM cart WHERE user_id = ? AND product_id = ?`
-    console.log("dans le controller")
+
     try {
-        console.log("dans le try")
+
         const paramsSQL = [user_id, product_id]
         console.log(user_id, product_id)
         const deleteFromCart = await asyncQuery(sql, paramsSQL)

@@ -84,7 +84,7 @@ e.preventDefault()
     return (
         <div className="edit_products">
             
-                <img src={`${BASE_IMG}/${product.url}`} alt="product image"/>
+                <img src={`${BASE_IMG}/${product.url}`} alt="photo de l'article"/>
                 <form onSubmit={submit}>
                 <label>
                     Type de produit :

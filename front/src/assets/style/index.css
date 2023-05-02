@@ -217,15 +217,17 @@ a {
 
 }
 
+/* Définition de l'animation appelée "flux" */
 @keyframes flux {
-  0%,
-  100% {
-    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
-    color: #28D7FE;
+/* Début et fin de l'animation avec une ombre de texte et une couleur de texte spécifiques */
+  0%, 100% {
+  text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+  color: #28D7FE;
   }
+  /* Milieu de l'animation avec une ombre de texte et une couleur de texte différentes */
   50% {
-    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
-    color: #146C80;
+  text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+  color: #146C80;
   }
 }
 
@@ -576,7 +578,6 @@ button,
   .navbar_links {
     width:100%;
     text-align:center;
-    
     flex-direction:column;
     justify-content:center;
     position:fixed;
@@ -604,7 +605,6 @@ button,
   }
   
   .navbar_burger{
-    position:fixed;
     top:1rem;
     right:1rem;
     border:none;

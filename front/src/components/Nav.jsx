@@ -27,12 +27,14 @@ const Nav = (props) => {
     <div>
       <nav className ={`nav ${showLinks ? "show-nav" : "hide-nav"}`}>
         <div className="navbar_logo">
-          <img src={logo} />
+          <img src={logo} alt="logo du site"/>
         </div>
-        {state.user.role_id === 1 &&
-          <NavLink onClick={handleShowLinks} className="admin_path" to="/admin/AdminPanel">
+        {state.user.role_id === 1 ?
+          (<NavLink onClick={handleShowLinks} className="admin_path" to="/admin/AdminPanel">
               ADMIN
-            </NavLink>}
+            </NavLink>)
+          : null
+        }
   
             <ul className="navbar_links">
               <li>

@@ -61,8 +61,8 @@ const AddProduct = () => {
 
     // Retourne le formulaire avec des étiquettes et des champs pour chaque donnée de produit et un bouton de soumission
     return (
-        <div className="add_product">
-            <form className="form" onSubmit={submit} encType="multipart/form-data">
+        <div className="">
+            <form className="add_product" onSubmit={submit} encType="multipart/form-data">
                 Type de produit:
                 <label>
                     <select name="type_id" 
