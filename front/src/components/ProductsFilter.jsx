@@ -48,7 +48,7 @@ const ProductsFilter = () => {
     <div className="shopBackground">
       <h1>Produits</h1>
       <div>
-        <label className="shopBackgroundLabel" htmlFor="type">Sélectionner Jeux ou consoles :</label>
+        <label className="shopBackgroundLabel" htmlFor="type">Sélectionner jeux ou consoles :</label>
         <select id="type" value={type} onChange={handleTypeChange}>
         {!type && <option value={undefined}>Choisir une catégorie</option>}
         //si option est sélectionné plus possible de sélectionner "choisir une catégorie"

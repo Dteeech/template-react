@@ -254,14 +254,16 @@ a {
   text-align: center;
   padding-top:150px;
 }
-
+.shopBackgroundLabel{
+  font-size:2rem;
+}
 .productCard {
   text-align: center;
   width: 400px;
   background: rgba(150, 150, 150, .4);
   border-radius: 50px;
   margin: 5%;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(5px);
   padding: 10px;
 }
 
@@ -294,7 +296,8 @@ a {
 .shopBackground select {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  margin-top:20px !important;
+  
 }
 
 
