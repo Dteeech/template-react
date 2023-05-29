@@ -51,6 +51,7 @@ const middleware = async (req, res, next) => {
       return res.status(401).json({ message: 'Access denied' });
     }
   }
+  res.setHeader("Content-Security-Policy", "default-src 'self'; font-src 'self' https://fonts.googleapis.com; style-src 'self' https://fonts.googleapis.com");
 
   next();
 };
