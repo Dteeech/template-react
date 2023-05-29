@@ -12,8 +12,8 @@ app.use(bodyParser.urlencoded({ extended:true })); // Utilisation du parseur de 
 app.use(express.static("public")); // Utilisation de la gestion des fichiers statiques pour les fichiers dans le répertoire "public"
 
 app.use("/", router); // Utilisation des routes définies dans le fichier "routes.js"
-
+const port = process.env.Port || 3001
 // Démarrage du serveur sur le port 3001
-app.listen(3001, () => {
-    console.log("le server est démarré à https://retro-games.onrender.com")
+app.listen(port, () => {
+    console.log(`le server est démarré sur le port ${port}`)
 })
