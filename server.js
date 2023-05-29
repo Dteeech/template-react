@@ -15,5 +15,5 @@ app.use("/", router); // Utilisation des routes définies dans le fichier "route
 
 // Démarrage du serveur sur le port 3001
 app.listen(3001, () => {
-    console.log("le server est démarré à http://isaacmarshall.ide.3wa.io:3001")
+    console.log("le server est démarré à https://retro-games.onrender.com")
 })
